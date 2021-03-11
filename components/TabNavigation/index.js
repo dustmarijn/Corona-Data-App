@@ -9,7 +9,11 @@ const Tab = createMaterialBottomTabNavigator();
 
 export default function TabNavigation() {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator
+            activeColor="#B9345E"
+            inactiveColor="#fff"
+            barStyle={{ backgroundColor: '#facc00' }}
+        >
             <Tab.Screen
                 name="Home"
                 component={HomeScreen}
