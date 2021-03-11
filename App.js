@@ -38,6 +38,7 @@ import TabNavigation from './components/TabNavigation';
 const App: () => React$Node = () => {
     return (
         <NavigationContainer>
+            <StatusBar barStyle="dark-content" />
             <SafeAreaView>
                 {/*<Stack.Navigator>*/}
                 {/*  <Stack.Screen*/}
