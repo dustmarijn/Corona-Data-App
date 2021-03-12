@@ -38,8 +38,8 @@ const App: () => React$Node = () => {
     return (
         <NavigationContainer>
             <StatusBar barStyle="dark-content" />
+            <TopBar/>
             <SafeAreaView>
-                <TopBar/>
             </SafeAreaView>
             <TabNavigation/>
         </NavigationContainer>
