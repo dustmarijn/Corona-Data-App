@@ -7,6 +7,7 @@ import ProfileScreen from "../Router/ProfileScreen";
 import SettingsScreen from "../Router/SettingsScreen";
 import ProvinceStatisticScreen from "../Router/ProvinceStatisticScreen";
 import ProvinceScreen from "../Router/ProvinceScreen";
+import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -48,6 +49,16 @@ export default function TabNavigation() {
                 }}
             />
             <Tab.Screen
+                name="DifferenceTesting"
+                component={DifferenceTestingScreen}
+                options={{
+                    tabBarLabel: 'DifferenceTesting',
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="ab-testing" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
             name="Province"
             component={ProvinceScreen}
             options={{
@@ -67,6 +78,8 @@ export default function TabNavigation() {
                 ),
             }}
             />
+        />
+
         </Tab.Navigator>
     );
 }
