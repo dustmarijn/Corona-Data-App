@@ -33,15 +33,17 @@ const Stack = createStackNavigator();
 // Components
 import TabNavigation from './components/TabNavigation';
 import TopBar from './components/TopBar';
+import TopItem from './components/TopItem';
 
 const App: () => React$Node = () => {
     return (
         <NavigationContainer>
             <StatusBar translucent backgroundColor={'#facc00'}/>
+            <TopItem/>
             <TopBar/>
             <SafeAreaView>
                 <ScrollView style={styles.scrollView}>
-                    <TopBar/>
+
                 </ScrollView>
             </SafeAreaView>
             <TabNavigation/>
