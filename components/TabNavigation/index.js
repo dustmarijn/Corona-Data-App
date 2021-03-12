@@ -5,7 +5,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import HomeScreen from "../Router/HomeScreen";
 import ProfileScreen from "../Router/ProfileScreen";
 import SettingsScreen from "../Router/SettingsScreen";
+import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 import ProvinceScreen from "../Router/ProvinceScreen";
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -48,6 +50,16 @@ export default function TabNavigation() {
                 }}
             />
             <Tab.Screen
+                name="DifferenceTesting"
+                component={DifferenceTestingScreen}
+                options={{
+                    tabBarLabel: 'DifferenceTesting',
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="ab-testing" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
             name="Province"
             component={ProvinceScreen}
             options={{
@@ -57,6 +69,7 @@ export default function TabNavigation() {
                 ),
             }}
         />
+
         </Tab.Navigator>
     );
 }
