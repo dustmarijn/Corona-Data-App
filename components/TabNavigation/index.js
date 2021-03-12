@@ -49,11 +49,11 @@ export default function TabNavigation() {
             />
             <Tab.Screen
             name="Provincie"
-            component={Provinciescreen}
+            component={ProvincieScreen}
             options={{
-                tabBarLabel: 'ProvincieScreen',
+                tabBarLabel: 'Provincie',
                 tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="cog" color={color} size={26} />
+                    <MaterialCommunityIcons name="map-outline" color={color} size={26} />
                 ),
             }}
         />
