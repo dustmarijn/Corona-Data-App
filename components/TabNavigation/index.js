@@ -55,11 +55,10 @@ export default function TabNavigation() {
                 options={{
                     tabBarLabel: 'DifferenceTesting',
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="cog" color={color} size={26} />
+                        <MaterialCommunityIcons name="ab-testing" color={color} size={26} />
                     ),
                 }}
             />
-
             <Tab.Screen
             name="Province"
             component={ProvinceScreen}
