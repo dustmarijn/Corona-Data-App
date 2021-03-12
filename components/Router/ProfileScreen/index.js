@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, Button, StyleSheet, View} from 'react-native';
 
-export default function ProfileScreen({navigation }) {
+export default function ProfileScreen({navigation}) {
     return (
         <View style={{padding: 20}}>
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>Profiel</Text>
@@ -10,7 +10,7 @@ export default function ProfileScreen({navigation }) {
                 title={`Go back to Home`}
                 textColor={'red'}
                 onPress={() =>
-                    navigation.navigate('Home')
+                    navigation.navigate('Provincie')
                 }
             />
         </View>
