@@ -1,10 +1,14 @@
 import React from 'react';
 import {Text, View, Button, StyleSheet} from 'react-native';
 
-export default function ProcincieScreen({navigation}){
+export default function ProvinceScreen({navigation}){
     return(
         <view>
-            <text></text>
+            <text>Algemeen</text>
         </view>
     )
 }
+
+const styles = StyleSheet.create({
+
+})

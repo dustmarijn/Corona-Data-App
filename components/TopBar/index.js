@@ -16,6 +16,8 @@ export default function TopBar() {
 
 const styles = StyleSheet.create({
     title: {
+        position: 'relative',
+        top: 0,
         width: 100 + '%',
         backgroundColor: '#facc00',
         display: 'flex',
