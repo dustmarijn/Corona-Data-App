@@ -4,6 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import HomeScreen from "../Router/HomeScreen";
 import ProfileScreen from "../Router/ProfileScreen";
+import SettingsScreen from "../Router/SettingsScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -31,6 +32,16 @@ export default function TabNavigation() {
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="account" color={color} size={26} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                    tabBarLabel: 'Settings',
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="cog" color={color} size={26} />
                     ),
                 }}
             />
