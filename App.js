@@ -40,14 +40,6 @@ const App: () => React$Node = () => {
         <NavigationContainer>
             <StatusBar barStyle="dark-content" />
             <SafeAreaView>
-                {/*<Stack.Navigator>*/}
-                {/*  <Stack.Screen*/}
-                {/*      name="Home"*/}
-                {/*      component={HomeScreen}*/}
-                {/*      options={{ title: 'Welcome' }}*/}
-                {/*  />*/}
-                {/*  <Stack.Screen name="Profile" component={ProfileScreen} />*/}
-                {/*</Stack.Navigator>*/}
             </SafeAreaView>
             <TabNavigation/>
         </NavigationContainer>
