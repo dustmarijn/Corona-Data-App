@@ -37,9 +37,12 @@ import TopBar from './components/TopBar';
 const App: () => React$Node = () => {
     return (
         <NavigationContainer>
-            <StatusBar barStyle="dark-content" />
+            <StatusBar translucent backgroundColor={'#facc00'}/>
             <TopBar/>
             <SafeAreaView>
+                <ScrollView style={styles.scrollView}>
+                    <TopBar/>
+                </ScrollView>
             </SafeAreaView>
             <TabNavigation/>
         </NavigationContainer>
@@ -48,6 +51,7 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
     scrollView: {
+        position: 'relative',
         backgroundColor: Colors.lighter,
     },
     engine: {
