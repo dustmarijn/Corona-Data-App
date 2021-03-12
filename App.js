@@ -31,8 +31,6 @@ const Stack = createStackNavigator();
 
 
 // Components
-import HomeScreen from './components/Router/HomeScreen';
-import ProfileScreen from './components/Router/ProfileScreen';
 import TabNavigation from './components/TabNavigation';
 
 const App: () => React$Node = () => {
