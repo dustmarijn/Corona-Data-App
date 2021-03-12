@@ -32,12 +32,14 @@ const Stack = createStackNavigator();
 
 // Components
 import TabNavigation from './components/TabNavigation';
+import TopBar from './components/TopBar';
 
 const App: () => React$Node = () => {
     return (
         <NavigationContainer>
             <StatusBar barStyle="dark-content" />
             <SafeAreaView>
+                <TopBar/>
             </SafeAreaView>
             <TabNavigation/>
         </NavigationContainer>
