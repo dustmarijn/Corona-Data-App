@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export default function TopBar() {
+export default function TopBar({navigation}) {
     const title = ['Corona', 'Data', 'App'];
     return (
         <View style={styles.title}>
@@ -38,5 +40,5 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         fontSize: 18,
         fontWeight: 'bold',
-    }
+    },
 })
