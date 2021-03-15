@@ -1,5 +1,8 @@
 import React from 'react';
-import {Text, Button, StyleSheet, View, Image} from 'react-native';
+import {Text, Button, StyleSheet, View, Image, Alert} from 'react-native';
+
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
 export default function ProfileScreen({navigation}) {
     return(
@@ -15,8 +18,12 @@ export default function ProfileScreen({navigation}) {
                     <Text style={styles.UserName}>John Doe</Text>
                     <Text style={styles.UserEmail}>JohnDoe@mail.com</Text>
                         <View style={styles.ButtonGroup}>
-                            <Button title="Profiel Bewerken" color="#841584"></Button>
-                            <Button title="Uitloggen" color="#000"></Button>
+                            <Button title="Profiel Bewerken"
+                                    color="#841584"/>
+
+                            <Button title="Uitloggen"
+                                    color="#000"
+                                    onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
                         </View>
                     <View style={styles.Line}/>
                 </View>
@@ -24,12 +31,17 @@ export default function ProfileScreen({navigation}) {
                 <View style={styles.UserDashboard}>
                     <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
                         <View style={styles.DashboardButten}>
-                            <Button title="Jouw corona overzicht"  color="#841584"/>
+                            <Button title="Jouw corona overzicht"
+                                    color="#841584"
+                                    onPress={() => navigation.navigate('Dashboard')}
+                                    />
                         </View>
                 </View>
         </View>
     )
 };
+
+
 
 const styles = StyleSheet.create({
     PageTitle: {
