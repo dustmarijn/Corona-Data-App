@@ -19,15 +19,58 @@ const Home = ({navigation}) => {
     )
 }
 
-export default function HomeScreen() {
+const Title = (navigation) => {
+    const title = ['Corona', 'Data', 'App'];
+
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home}/>
-            <Stack.Screen name="Province" component={ProvinceScreen}/>
-            <Stack.Screen name="Profile" component={ProfileScreen}/>
-            <Stack.Screen name="Difference Testing Screen" component={DifferenceTestingScreen}/>
-            <Stack.Screen name="Province Statics Screen" component={ProvinceStatisticScreen}/>
-            <Stack.Screen name="Settings" component={SettingsScreen}/>
+        <View style={styles.title}>
+            {title.map((item, index) => {
+                return (
+                    <Text key={index} style={styles.item}>{item}</Text>
+                )
+            })}
+        </View>
+    )
+};
+
+export default function HomeScreen({defaultScreen}) {
+    const options = {headerLayoutPreset: 'center', headerStyle: {backgroundColor: '#facc00'}, headerTitleBackgroundColor: '#B9345E', headerTintColor: '#B9345E', headerTitle: <Title/>, headerTitleStyle: {alignSelf: 'center', fontWeight: 'bold',} ,}
+    return (
+        <Stack.Navigator initialRouteName={defaultScreen} screenOptions={{headerTitleAlign: 'center', animationEnabled: false,}}>
+            <Stack.Screen options={options} name="Home" component={Home}/>
+            <Stack.Screen options={options} name="Province" component={ProvinceScreen}/>
+            <Stack.Screen options={options} name="Profile" component={ProfileScreen}/>
+            <Stack.Screen options={options} name="Difference Testing Screen" component={DifferenceTestingScreen}/>
+            <Stack.Screen options={options} name="Province Statics Screen" component={ProvinceStatisticScreen}/>
+            <Stack.Screen options={options} name="Settings" component={SettingsScreen}/>
         </Stack.Navigator>
     )
-}
+};
+
+const styles = StyleSheet.create({
+    title: {
+        position: 'relative',
+        top: 0,
+        width: 100 + '%',
+        backgroundColor: '#facc00',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        height: 50,
+        zIndex: 1000,
+        marginLeft: 0,
+    },
+    item: {
+        position: 'relative',
+        width: 'auto',
+        padding: 5,
+        backgroundColor: '#B9345E',
+        color: '#fff',
+        margin: 1.5,
+        borderRadius: 4,
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+})
