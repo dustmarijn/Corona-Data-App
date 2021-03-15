@@ -24,37 +24,7 @@ export default function TabNavigation() {
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="home" color={color} size={26} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={ProfileScreen}
-                options={{
-                    tabBarLabel: 'Profile',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="account" color={color} size={26} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Settings"
-                component={SettingsScreen}
-                options={{
-                    tabBarLabel: 'Settings',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="cog" color={color} size={26} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="DifferenceTesting"
-                component={DifferenceTestingScreen}
-                options={{
-                    tabBarLabel: 'DifferenceTesting',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="ab-testing" color={color} size={26} />
+                        <MaterialCommunityIcons name="home" color={color} size={25} />
                     ),
                 }}
             />
@@ -64,20 +34,40 @@ export default function TabNavigation() {
             options={{
                 tabBarLabel: 'Province',
                 tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="map-outline" color={color} size={26} />
+                    <MaterialCommunityIcons name="map-outline" color={color} size={25} />
                 ),
             }}
             />
             <Tab.Screen
-            name="ProvinceStatisticScreen"
-            component={ProvinceStatisticScreen}
-            options={{
-                tabBarLabel: 'Stats',
-                tabBarIcon: ({ color }) => (
-                    <MaterialCommunityIcons name="chart-areaspline-variant" color={color} size={26} />
-                ),
-            }}
+                name="Profile"
+                component={ProfileScreen}
+                options={{
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="account" color={color} size={25} />
+                    ),
+                }}
             />
+            {/*<Tab.Screen*/}
+            {/*name="ProvinceStatisticScreen"*/}
+            {/*component={ProvinceStatisticScreen}*/}
+            {/*options={{*/}
+            {/*    tabBarLabel: 'Stats',*/}
+            {/*    tabBarIcon: ({ color }) => (*/}
+            {/*        <MaterialCommunityIcons name="chart-areaspline-variant" color={color} size={26} />*/}
+            {/*    ),*/}
+            {/*}}*/}
+            {/*/>*/}
+            {/*<Tab.Screen*/}
+            {/*    name="DifferenceTesting"*/}
+            {/*    component={DifferenceTestingScreen}*/}
+            {/*    options={{*/}
+            {/*        tabBarLabel: 'DifferenceTesting',*/}
+            {/*        tabBarIcon: ({ color }) => (*/}
+            {/*            <MaterialCommunityIcons name="ab-testing" color={color} size={26} />*/}
+            {/*        ),*/}
+            {/*    }}*/}
+            {/*/>*/}
         </Tab.Navigator>
     );
 }

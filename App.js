@@ -34,6 +34,7 @@ const Stack = createStackNavigator();
 import TabNavigation from './components/TabNavigation';
 import TopBar from './components/TopBar';
 import TopItem from './components/TopItem';
+import DifferenceTestingScreen from './components/Router/DifferenceTestingScreen';
 
 const App: () => React$Node = () => {
     return (
