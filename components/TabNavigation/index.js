@@ -5,10 +5,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import HomeScreen from "../Router/HomeScreen";
 import ProfileScreen from "../Router/ProfileScreen";
 import SettingsScreen from "../Router/SettingsScreen";
-import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
+import ProvinceStatisticScreen from "../Router/ProvinceStatisticScreen";
 import ProvinceScreen from "../Router/ProvinceScreen";
-
-
+import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -68,8 +67,17 @@ export default function TabNavigation() {
                     <MaterialCommunityIcons name="map-outline" color={color} size={26} />
                 ),
             }}
-        />
-
+            />
+            <Tab.Screen
+            name="ProvinceStatisticScreen"
+            component={ProvinceStatisticScreen}
+            options={{
+                tabBarLabel: 'Stats',
+                tabBarIcon: ({ color }) => (
+                    <MaterialCommunityIcons name="chart-areaspline-variant" color={color} size={26} />
+                ),
+            }}
+            />
         </Tab.Navigator>
     );
 }
