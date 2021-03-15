@@ -6,6 +6,7 @@ import ProvinceScreen from '../ProvinceScreen';
 import ProfileScreen from '../ProfileScreen';
 import SettingsScreen from '../SettingsScreen';
 import ProvinceStatisticScreen from '../ProvinceStatisticScreen';
+import DashboardScreen from '../DashboardScreen';
 
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
@@ -43,6 +44,7 @@ export default function HomeScreen({defaultScreen}) {
             <Stack.Screen options={options} name="Difference Testing Screen" component={DifferenceTestingScreen}/>
             <Stack.Screen options={options} name="Province Statics Screen" component={ProvinceStatisticScreen}/>
             <Stack.Screen options={options} name="Settings" component={SettingsScreen}/>
+            <Stack.Screen options={options} name="Dashboard" component={DashboardScreen}/>
         </Stack.Navigator>
     )
 };
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        height: 50,
+        height: 'auto',
         zIndex: 1000,
         marginLeft: 0,
     },
