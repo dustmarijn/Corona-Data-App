@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default function RivmData() {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.json')
+            fetch('https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.json')
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, []);
+    }, [data]);
 
     return (
-        <View style={{ flex: 1, padding: 24 }}>
+        <ScrollView>
             {isLoading ? <ActivityIndicator/> : (
                 <FlatList
                     data={data}
@@ -27,6 +28,6 @@ export default function RivmData() {
                     )}
                 />
             )}
-        </View>
+        </ScrollView>
     );
 };
