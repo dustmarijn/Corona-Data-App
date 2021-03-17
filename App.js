@@ -33,6 +33,7 @@ const Stack = createStackNavigator();
 // Components
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
+import RivmData from './components/Api/DataApi';
 
 const App: () => React$Node = () => {
     return (
