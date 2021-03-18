@@ -1,5 +1,6 @@
-import React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import Button from '../../Button';
 
 import DifferenceTestingScreen from '../DifferenceTestingScreen';
 import ProvinceScreen from '../ProvinceScreen';
@@ -12,10 +13,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 const Home = ({navigation}) => {
+    const [data, setData] = useState([]);
+
     return (
-        <View>
-            <Button title={'Ga naar difference testing screen'} onPress={() => navigation.navigate('Difference Testing Screen')}/>
-            <Button title={'Ga naar province statics screen'} onPress={() => navigation.navigate('Province Statics Screen')}/>
+        <View style={{display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'space-between', flexDirection: 'column', height: 100,}}>
+            <Button style={styles.button} title={'Ga naar difference testing screen'} onPress={() => navigation.navigate('Difference Testing Screen')}/>
+            <Button style={styles.button} title={'Ga naar province statics screen'} onPress={() => navigation.navigate('Province Statics Screen')}/>
         </View>
     )
 }
@@ -75,4 +78,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
+    button: {
+        position: 'relative',
+        backgroundColor: '#00a7db',
+        color: '#fff',
+        fontSize: 16,
+        width: 'auto',
+        borderRadius: 4,
+        padding: 10,
+        margin: 10,
+    }
 })
