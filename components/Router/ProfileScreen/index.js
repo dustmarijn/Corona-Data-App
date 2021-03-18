@@ -12,10 +12,10 @@ export default function ProfileScreen({navigation}) {
         <View>
             <Text style={styles.PageTitle}>Mijn Profiel</Text>
             <View style={styles.ImgContainer}>
-                             <Image
-                                 style={styles.UserImg}
-                                 source={require('./user.png')}>
-                             </Image>
+                <Image
+                    style={styles.UserImg}
+                    source={require('./user.png')}>
+                </Image>
             </View>
                 <View style={styles.UserData}>
                     <Text style={styles.UserName}>John Doe</Text>
@@ -24,18 +24,18 @@ export default function ProfileScreen({navigation}) {
                             <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
                             <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
                         </View>
-                    <View style={styles.Line}/>
-                </View>
+                <View style={styles.Line}/>
+            </View>
 
-                <View style={styles.UserDashboard}>
-                    <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
-                        <View style={styles.DashboardButten}>
-                            <Button title="Jouw corona overzicht"
-                                    color="#841584"
-                                    onPress={() => navigation.navigate('Dashboard')}
-                                    />
-                        </View>
+            <View style={styles.UserDashboard}>
+                <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
+                <View style={styles.DashboardButten}>
+                    <Button title="Jouw corona overzicht"
+                            color="#841584"
+                            onPress={() => navigation.navigate('Dashboard')}
+                    />
                 </View>
+            </View>
         </View>
     )
 };
@@ -70,7 +70,16 @@ const styles = StyleSheet.create({
     },
 
     UserData: {
-      padding: 20,
+        padding: 20,
+    },
+
+    btnLogout: {
+        width: 'auto',
+        padding: 10,
+        backgroundColor: '#f00a7f',
+        color: '#fff',
+        borderRadius: 4,
+        fontSize: 16,
     },
 
     btnLogout: {
@@ -113,5 +122,3 @@ const styles = StyleSheet.create({
 
 
 })
-
-

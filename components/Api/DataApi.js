@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 
 export default function RivmData() {
@@ -7,7 +7,7 @@ export default function RivmData() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-            fetch('https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.json')
+        fetch('https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.json')
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
@@ -15,19 +15,21 @@ export default function RivmData() {
     }, [data]);
 
     return (
-        <ScrollView>
-            {isLoading ? <ActivityIndicator/> : (
-                <FlatList
-                    data={data}
-                    keyExtractor={({ id }, index) => id}
-                    renderItem={({ item, index }) => (
-                        <View key={index}>
-                        <Text>{item.Date_of_report}</Text>
-                        <Text>{item.Tested_positive}</Text>
-                        </View>
-                    )}
-                />
-            )}
-        </ScrollView>
+        <View>
+            <ScrollView>
+                {isLoading ? <ActivityIndicator/> : (
+                    <FlatList
+                        data={data}
+                        keyExtractor={({id}, index) => id}
+                        renderItem={({item, index}) => (
+                            <View key={index}>
+                                <Text>{item.Date_of_report}</Text>
+                                <Text>{item.Tested_positive}</Text>
+                            </View>
+                        )}
+                    />
+                )}
+            </ScrollView>
+        </View>
     );
 };
