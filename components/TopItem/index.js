@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 
 export default function TopItem() {
     return (
-        <View style={styles.title} />
+        <View style={styles.title}/>
     )
 }
 
@@ -31,5 +31,5 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         fontSize: 18,
         fontWeight: 'bold',
-    }
+    },
 })
