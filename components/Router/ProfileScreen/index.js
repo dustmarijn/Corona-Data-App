@@ -17,13 +17,13 @@ export default function ProfileScreen({navigation}) {
                     source={require('./user.png')}>
                 </Image>
             </View>
-            <View style={styles.UserData}>
-                <Text style={styles.UserName}>John Doe</Text>
-                <Text style={styles.UserEmail}>JohnDoe@mail.com</Text>
-                <View style={styles.ButtonGroup}>
-                    <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
-                    <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
-                </View>
+                <View style={styles.UserData}>
+                    <Text style={styles.UserName}>John Doe</Text>
+                    <Text style={styles.UserEmail}>JohnDoe@mail.com</Text>
+                        <View style={styles.ButtonGroup}>
+                            <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
+                            <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
+                        </View>
                 <View style={styles.Line}/>
             </View>
 
@@ -71,6 +71,15 @@ const styles = StyleSheet.create({
 
     UserData: {
         padding: 20,
+    },
+
+    btnLogout: {
+        width: 'auto',
+        padding: 10,
+        backgroundColor: '#f00a7f',
+        color: '#fff',
+        borderRadius: 4,
+        fontSize: 16,
     },
 
     btnLogout: {
