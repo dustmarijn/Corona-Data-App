@@ -4,8 +4,6 @@ import RivmData from '../../Api/DataApi';
 
 export default function DashboardScreen() {
 return(
-    <View>
         <RivmData/>
-    </View>
 )
 }
