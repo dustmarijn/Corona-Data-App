@@ -8,6 +8,7 @@ import ProfileScreen from '../ProfileScreen';
 import SettingsScreen from '../SettingsScreen';
 import ProvinceStatisticScreen from '../ProvinceStatisticScreen';
 import DashboardScreen from '../DashboardScreen';
+import RivmData from '../../Api/DataApi';
 
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ const Home = ({navigation}) => {
     const [data, setData] = useState([]);
 
     return (
+
         <View style={{display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'space-between', flexDirection: 'column', height: 100,}}>
             <Button style={styles.button} title={'Ga naar difference testing screen'} onPress={() => navigation.navigate('Difference Testing Screen')}/>
             <Button style={styles.button} title={'Ga naar province statics screen'} onPress={() => navigation.navigate('Province Statics Screen')}/>
@@ -34,6 +36,7 @@ const Title = (navigation) => {
                 )
             })}
         </View>
+
     )
 };
 
