@@ -1,23 +1,24 @@
-import React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import {ScrollView} from "react-native-gesture-handler";
+import {ScrollView} from 'react-native-gesture-handler';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function ProvinceScreen({navigation}){
-    const ProvinceList =["Algemeen", "Groningen", "Friesland", "Drenthe", "Overijssel", "Flevoland", "Noord-Holland", "Zuid-Holland", "Gelderland", "Utrecht", "Noord-Brabant", "Limburg", "Zeeland"];
+    const [defaultProvince, setDefaultProvince] = useState('Algemeen');
     return(
-        <ScrollView>
-            {ProvinceList.map((province, index) =>{
-                return (
-                    <View key={index}>
-                        <Text style={styles.text}>
-                            {province}
-                            <Text style={styles.Icon}><MaterialCommunityIcons name="arrow-right" size={26}/></Text>
-                        </Text>
-                    </View>
-                )
-            })}
-        </ScrollView>
+        <View>
+            <DropDownPicker
+                items={[ {value : "Algemeen", label : "Algemeen"},{value: "Groningen", label : "Groningen"}, {value:"Friesland", label : "Friesland"}, {value:"Drenthe", label : "Drenthe"}, {value:"Overijssel", label : "Overijssel"}, {value:"Flevoland", label : "Flevoland"}, {value:"Noord-Holland", label : "Noord-Holland"}, {value:"Zuid-Holland", label : "Zuid-Holland"}, {value:"Gelderland", label : "Gelderland"}, {value:"Utrecht", label : "Utrecht"}, {value:"Noord-Brabant", label : "Noord-Brabant"}, {value:"Limburg", label : "Limburg"}, {value:"Zeeland", label : "Zeeland"}]}
+                multiple={false}
+                min={0}
+                max={13}
+                defaultValue={defaultProvince}
+                containerStyle={{height: 40}}
+                onChangeItem={item => setDefaultProvince(item.value)}
+            />
+        </View>
+
     )
 }
 
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         borderBottomColor: 'black'
     },
-    Icon:{
+    dropdown:{
 
     }
 })
