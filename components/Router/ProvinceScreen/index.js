@@ -12,9 +12,9 @@ export default function ProvinceScreen({navigation}){
                 items={[ {value : "Algemeen", label : "Algemeen"},{value: "Groningen", label : "Groningen"}, {value:"Friesland", label : "Friesland"}, {value:"Drenthe", label : "Drenthe"}, {value:"Overijssel", label : "Overijssel"}, {value:"Flevoland", label : "Flevoland"}, {value:"Noord-Holland", label : "Noord-Holland"}, {value:"Zuid-Holland", label : "Zuid-Holland"}, {value:"Gelderland", label : "Gelderland"}, {value:"Utrecht", label : "Utrecht"}, {value:"Noord-Brabant", label : "Noord-Brabant"}, {value:"Limburg", label : "Limburg"}, {value:"Zeeland", label : "Zeeland"}]}
                 multiple={false}
                 min={0}
-                max={13}
+                max={12}
                 defaultValue={defaultProvince}
-                containerStyle={{height: 40}}
+                containerStyle={styles.dropdown}
                 onChangeItem={item => setDefaultProvince(item.value)}
             />
         </View>
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black'
     },
     dropdown:{
-
+        width: 120,
+        height: 40
     }
 })
