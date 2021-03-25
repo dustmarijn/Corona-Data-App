@@ -5,7 +5,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import HomeScreen from "../Router/HomeScreen";
 import ProfileScreen from "../Router/ProfileScreen";
 import SettingsScreen from "../Router/SettingsScreen";
-import ProvinceStatisticScreen from "../Router/ProvinceStatisticScreen";
 import ProvinceScreen from "../Router/ProvinceScreen/index";
 import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 
