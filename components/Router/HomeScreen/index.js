@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, Image} from 'react-native';
 import Button from '../../Button';
 
 import DifferenceTestingScreen from '../DifferenceTestingScreen';
-import ProvinceScreen from '../ProvinceScreen';
+import ProvinceScreen from '../ProvinceScreen/DropDown';
 import ProfileScreen from '../ProfileScreen';
 import SettingsScreen from '../SettingsScreen';
 import ProvinceStatisticScreen from '../ProvinceStatisticScreen';
