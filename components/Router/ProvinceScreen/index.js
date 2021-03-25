@@ -11,3 +11,6 @@ export default function ProvinceScreen({navigation}){
         </View>
     )
 }
+const styles = StyleSheet.create({
+
+})

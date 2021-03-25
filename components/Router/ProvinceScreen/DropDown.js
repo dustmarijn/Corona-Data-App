@@ -3,9 +3,8 @@ import {Text, View, StyleSheet} from 'react-native';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import {ScrollView} from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
-import LineChart from "react-native-chart-kit";
 
-export default function ProvinceScreen({navigation}){
+export default function ProvinceScreen(){
     const [defaultProvince, setDefaultProvince] = useState('Algemeen');
     const BaseColor= "#B9345E";
     return(
