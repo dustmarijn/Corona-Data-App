@@ -2,9 +2,10 @@ import React, {useEffect} from 'react';
 import UserApi from '../../Api/UserApi';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import ProvinceScreen from '../ProvinceScreen';
+import Button from '../../Button';
 
 export default function LoginScreen({navigation}) {
-    const {user} = UserApi();
+    const {user, Login} = UserApi();
 
     return (
         <>
@@ -14,6 +15,9 @@ export default function LoginScreen({navigation}) {
                     <Text style={styles.title}>Aanmelden</Text>
                     <TextInput style={styles.input} type={'email'} placeholder={'E-mail adres'}/>
                     <TextInput style={styles.input} type={'password'} placeholder={'Wachtwoord'}/>
+                    <View styles={styles.btns}>
+                        <Button onPress={() => Login()} style={styles.btn} title={'Login'}/>
+                    </View>
                 </View>
             :
                 <ProvinceScreen/>
@@ -45,5 +49,16 @@ const styles = StyleSheet.create({
         padding: 0,
         paddingVertical: 10,
         marginVertical: 10,
+    },
+    btns: {
+        width: '100%',
+    },
+    btn: {
+        width: 90,
+        textAlign: 'center',
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        backgroundColor: '#00a7db',
+        color: 'white',
     }
 })

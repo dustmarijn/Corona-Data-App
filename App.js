@@ -24,16 +24,12 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
+import {NavigationContainer} from '@react-navigation/native';
 
 
 // Components
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
-import RivmData from './components/Api/DataApi';
 import UserProvider from './components/Providers/UserProvider';
 
 const App: () => React$Node = () => {
@@ -42,7 +38,6 @@ const App: () => React$Node = () => {
             <NavigationContainer>
                 <StatusBar translucent backgroundColor={'#facc00'}/>
                 <TopItem/>
-                {/*<TopBar/>*/}
                 <SafeAreaView>
                     <ScrollView style={styles.scrollView}>
 

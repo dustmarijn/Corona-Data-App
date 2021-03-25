@@ -6,7 +6,7 @@ import HomeScreen from "../Router/HomeScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function TabNavigation({navigation}) {
+export default function TabNavigation() {
     return (
         <Tab.Navigator
             activeColor="#B9345E"
