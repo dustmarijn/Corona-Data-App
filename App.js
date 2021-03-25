@@ -34,20 +34,23 @@ const Stack = createStackNavigator();
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
 import RivmData from './components/Api/DataApi';
+import UserProvider from './components/Providers/UserProvider';
 
 const App: () => React$Node = () => {
     return (
-        <NavigationContainer>
-            <StatusBar translucent backgroundColor={'#facc00'}/>
-            <TopItem/>
-            {/*<TopBar/>*/}
-            <SafeAreaView>
-                <ScrollView style={styles.scrollView}>
+        <UserProvider>
+            <NavigationContainer>
+                <StatusBar translucent backgroundColor={'#facc00'}/>
+                <TopItem/>
+                {/*<TopBar/>*/}
+                <SafeAreaView>
+                    <ScrollView style={styles.scrollView}>
 
-                </ScrollView>
-            </SafeAreaView>
-            <TabNavigation/>
-        </NavigationContainer>
+                    </ScrollView>
+                </SafeAreaView>
+                <TabNavigation/>
+            </NavigationContainer>
+        </UserProvider>
     );
 };
 

@@ -3,15 +3,10 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeScreen from "../Router/HomeScreen";
-import ProfileScreen from "../Router/ProfileScreen";
-import SettingsScreen from "../Router/SettingsScreen";
-import ProvinceStatisticScreen from "../Router/ProvinceStatisticScreen";
-import ProvinceScreen from "../Router/ProvinceScreen";
-import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function TabNavigation() {
+export default function TabNavigation({navigation}) {
     return (
         <Tab.Navigator
             activeColor="#B9345E"
