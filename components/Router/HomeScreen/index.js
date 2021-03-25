@@ -3,10 +3,9 @@ import {Text, View, StyleSheet, Image} from 'react-native';
 import Button from '../../Button';
 
 import DifferenceTestingScreen from '../DifferenceTestingScreen';
-import ProvinceScreen from '../ProvinceScreen/DropDown';
+import ProvinceScreen from '../ProvinceScreen/index';
 import ProfileScreen from '../ProfileScreen';
 import SettingsScreen from '../SettingsScreen';
-import ProvinceStatisticScreen from '../ProvinceStatisticScreen';
 import DashboardScreen from '../DashboardScreen';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -211,7 +210,6 @@ export default function HomeScreen({defaultScreen}) {
             <Stack.Screen options={options} name="Province" component={ProvinceScreen}/>
             <Stack.Screen options={options} name="Profile" component={ProfileScreen}/>
             <Stack.Screen options={options} name="Difference Testing Screen" component={DifferenceTestingScreen}/>
-            <Stack.Screen options={options} name="Province Statics Screen" component={ProvinceStatisticScreen}/>
             <Stack.Screen options={options} name="Settings" component={SettingsScreen}/>
             <Stack.Screen options={options} name="Dashboard" component={DashboardScreen}/>
         </Stack.Navigator>
