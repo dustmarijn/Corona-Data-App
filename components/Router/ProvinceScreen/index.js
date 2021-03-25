@@ -6,6 +6,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function ProvinceScreen({navigation}){
     const [defaultProvince, setDefaultProvince] = useState('Algemeen');
+    const BaseColor= "#B9345E";
     return(
         <View>
             <DropDownPicker
@@ -15,13 +16,13 @@ export default function ProvinceScreen({navigation}){
                 max={12}
                 defaultValue={defaultProvince}
                 containerStyle={styles.dropdown}
+                dropDownStyle={{backgroundColor:BaseColor}}
                 onChangeItem={item => setDefaultProvince(item.value)}
             />
         </View>
 
     )
 }
-
 const styles = StyleSheet.create({
     text:{
         fontSize: 40,
