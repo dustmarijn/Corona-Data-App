@@ -16,20 +16,18 @@ export default function RivmData() {
 
     return (
         <View>
-            <ScrollView>
-                {isLoading ? <ActivityIndicator/> : (
-                    <FlatList
-                        data={data}
-                        keyExtractor={({id}, index) => id}
-                        renderItem={({item, index}) => (
-                            <View key={index}>
-                                <Text>{item.Date_of_report}</Text>
-                                <Text>{item.Tested_positive}</Text>
-                            </View>
-                        )}
-                    />
-                )}
-            </ScrollView>
+            {isLoading ? <ActivityIndicator/> : (
+                <FlatList
+                    data={data}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({item, index}) => (
+                        <View key={index}>
+                            <Text>{item.Date_of_report}</Text>
+                            <Text>{item.Tested_positive}</Text>
+                        </View>
+                    )}
+                />
+            )}
         </View>
     );
 };
