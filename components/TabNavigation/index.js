@@ -3,10 +3,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeScreen from "../Router/HomeScreen";
-import ProfileScreen from "../Router/ProfileScreen";
-import SettingsScreen from "../Router/SettingsScreen";
-import ProvinceScreen from "../Router/ProvinceScreen/index";
-import DifferenceTestingScreen from "../Router/DifferenceTestingScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 

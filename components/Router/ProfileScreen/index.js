@@ -1,41 +1,47 @@
 import React from 'react';
 import {Text, StyleSheet, View, Image, Alert} from 'react-native';
 
-import { createStackNavigator } from '@react-navigation/stack';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-const Stack = createStackNavigator();
-
 import Button from '../../Button/';
+import UserApi from '../../Api/UserApi';
+import LoginScreen from '../LoginScreen';
 
 export default function ProfileScreen({navigation}) {
+    const {user} = UserApi();
+
     return(
         <View>
-            <Text style={styles.PageTitle}>Mijn Profiel</Text>
-            <View style={styles.ImgContainer}>
-                <Image
-                    style={styles.UserImg}
-                    source={require('./user.png')}>
-                </Image>
-            </View>
-                <View style={styles.UserData}>
-                    <Text style={styles.UserName}>John Doe</Text>
-                    <Text style={styles.UserEmail}>JohnDoe@mail.com</Text>
+            {user !== null ?
+                <>
+                    <Text style={styles.PageTitle}>Mijn Profiel</Text>
+                    <View style={styles.ImgContainer}>
+                        <Image
+                            style={styles.UserImg}
+                            source={require('./user.png')}>
+                        </Image>
+                    </View>
+                    <View style={styles.UserData}>
+                        <Text style={styles.UserName}>{user ? user.name : 'Not found'}</Text>
+                        <Text style={styles.UserEmail}>{user ? user.email : 'Not found'}</Text>
                         <View style={styles.ButtonGroup}>
                             <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
                             <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
                         </View>
-                <View style={styles.Line}/>
-            </View>
+                        <View style={styles.Line}/>
+                    </View>
 
-            <View style={styles.UserDashboard}>
-                <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
-                <View style={styles.DashboardButten}>
-                    <Button title="Jouw corona overzicht"
-                            color="#841584"
-                            onPress={() => navigation.navigate('Dashboard')}
-                    />
-                </View>
-            </View>
+                    <View style={styles.UserDashboard}>
+                        <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
+                        <View style={styles.DashboardButten}>
+                            <Button title="Jouw corona overzicht"
+                                    color="#841584"
+                                    onPress={() => navigation.navigate('Dashboard')}
+                            />
+                        </View>
+                    </View>
+                </>
+            :
+                <LoginScreen/>
+            }
         </View>
     )
 };
@@ -71,15 +77,6 @@ const styles = StyleSheet.create({
 
     UserData: {
         padding: 20,
-    },
-
-    btnLogout: {
-        width: 'auto',
-        padding: 10,
-        backgroundColor: '#f00a7f',
-        color: '#fff',
-        borderRadius: 4,
-        fontSize: 16,
     },
 
     btnLogout: {
