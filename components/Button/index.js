@@ -10,7 +10,8 @@ export default function Button({style, onPress, title, children}) {
                     color: style?.color,
                     fontSize: style?.fontSize,
                     fontWeight: style?.fontWeight,
-                    textTransform: style?.textTransform
+                    textTransform: style?.textTransform,
+                    textAlign: style?.textAlign,
                 }}>{title ? title : null}</Text>
             : null}
                 {children}
