@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import { Provider} from 'react-redux';
-import createStore from './createReduxStore';
 
 export default function RivmData() {
     const [isLoading, setLoading] = useState(true);
@@ -16,13 +14,7 @@ export default function RivmData() {
             .finally(() => setLoading(false));
     }, [data]);
 
-    const [Date, Setdate] = useState([]);
-
-    Setdate(data.item.Date_of_report);
-    const store = createStore(Date)
-
     return (
-        <Provider store={store}>
         <View>
             {isLoading ? <ActivityIndicator/> : (
                 <FlatList
@@ -37,6 +29,5 @@ export default function RivmData() {
                 />
             )}
         </View>
-        </Provider>
     );
 };
