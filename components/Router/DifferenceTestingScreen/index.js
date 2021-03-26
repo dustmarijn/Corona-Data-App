@@ -1,20 +1,19 @@
 import React  from 'react';
-import {Text, Button, View} from 'react-native';
+import {Text,View} from 'react-native';
+import RivmData from '../../Api/DataApi';
+import { Provider } from 'react-redux';
 
-export default async function DifferenceTestingScreen({navigation }) {
-
-        const response = await fetch('https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.json');
-        const data = await response.json();
-        this.setState({ issues: data, loading: false });
+export default  function DifferenceTestingScreen({navigation }) {
 
 
-    return (
+
+  return(
+      <Provider>
         <View style={{padding: 20}}>
-           <Text style={{color: '#00a7d0', fontSize: 30}} >Het vershil tussen vrij testen en particulier testen.</Text>
-            renderItem={({ data, index }) => (
-                <Text key={index}>{data.Tested_with_result}</Text>
-            )}
-        </View>
+            <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
+             <Text>{RivmData.Date}</Text>
 
-    )
+        </View>
+      </Provider>
+  )
 }
