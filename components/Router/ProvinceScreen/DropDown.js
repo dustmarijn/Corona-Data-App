@@ -18,7 +18,7 @@ export default function ProvinceScreen({navigation}){
                 defaultValue={defaultProvince}
                 containerStyle={styles.dropdown}
                 dropDownStyle={{backgroundColor:BaseColor}}
-                onChangeItem={item => setDefaultProvince(item.value)}
+                onChangeItem={item => setDefaultProvince(item.value )}
             />
         </View>
 

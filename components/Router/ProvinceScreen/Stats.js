@@ -15,7 +15,7 @@ export default function Stats() {
 
     return (
         <View style={{padding: 20}}>
-            {Data}
+            <Text>{Data}</Text>
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{Province}</Text>
             <Text style={styles.text}>Besmettingen: {Infections}</Text>
             <Text style={styles.text}>Ziekenhuis opnames: {Hospitalized}</Text>

@@ -22,8 +22,8 @@ export default function RivmData() {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({item, index}) => (
                         <View key={index}>
-                            <Text>{item.Date_of_report}</Text>
-                            <Text>{item.Tested_positive}</Text>
+                            <Text>{item.Security_region_name}</Text>
+                            {/*<Text>{item.Tested_positive}</Text>*/}
                         </View>
                     )}
                 />
