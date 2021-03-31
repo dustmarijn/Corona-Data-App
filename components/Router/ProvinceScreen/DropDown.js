@@ -4,9 +4,9 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import {ScrollView} from 'react-native-gesture-handler';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-export default function ProvinceScreen(){
-    const [defaultProvince, setDefaultProvince] = useState('Algemeen');
+export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
     const BaseColor= "#B9345E";
+
     return(
         <View>
             <DropDownPicker
@@ -14,11 +14,15 @@ export default function ProvinceScreen(){
                 multiple={false}
                 min={0}
                 max={12}
+                style={{backgroundColor:BaseColor, margin: 2}}
                 defaultValue={defaultProvince}
                 containerStyle={styles.dropdown}
+                placeholderStyle ={{backgroundColor:BaseColor}}
                 dropDownStyle={{backgroundColor:BaseColor}}
                 onChangeItem={item => setDefaultProvince(item.value)}
+
             />
+
         </View>
 
     )
@@ -31,6 +35,6 @@ const styles = StyleSheet.create({
     },
     dropdown:{
         width: 120,
-        height: 40
+        height: 45
     }
 })
