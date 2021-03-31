@@ -1,11 +1,12 @@
 import React from 'react';
-import {Text, View, Dimensions} from "react-native";
+import {Text, View, Dimensions, StyleSheet} from "react-native";
 import {LineChart} from "react-native-chart-kit";
 
-export default function chart(){
+export default function Chart({defaultProvince}){
+
     return(
             <View>
-                <Text>Bezier Line Chart</Text>
+                <Text>{defaultProvince}</Text>
                 <LineChart
                     data={{
                         labels: ["January", "February", "March", "April", "May", "June"],
@@ -29,8 +30,8 @@ export default function chart(){
                     yAxisInterval={1} // optional, defaults to 1
                     chartConfig={{
                         backgroundColor: "#e26a00",
-                        backgroundGradientFrom: "#fb8c00",
-                        backgroundGradientTo: "#ffa726",
+                        backgroundGradientFrom: "#facc00",
+                        backgroundGradientTo: "#facc00",
                         decimalPlaces: 2, // optional, defaults to 2dp
                         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -45,6 +46,7 @@ export default function chart(){
                     }}
                     bezier
                     style={{
+                        margin: 5,
                         marginVertical: 8,
                         borderRadius: 16
                     }}
@@ -52,3 +54,6 @@ export default function chart(){
             </View>
             )
 }
+const styles = StyleSheet.create({
+
+})
