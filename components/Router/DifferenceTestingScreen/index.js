@@ -1,5 +1,5 @@
 import React  from 'react';
-import {Text, ScrollView, Dimensions, View} from 'react-native';
+import {Text, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 
 export default  function DifferenceTestingScreen({navigation }) {
@@ -13,24 +13,17 @@ export default  function DifferenceTestingScreen({navigation }) {
                     labels: ["17-24", "24-31", "31-07", "07-14", "14-21", "21-28"],
                     datasets: [
                         {
-                            data: [
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100
-                            ],
-                            data2: [
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100,
-                                Math.random() * 100
-                            ]
+                            data: [20, 40, 50, 0, 0, 0],
+                            strokeWidth: 2,
+                            color: (opacity = 1) => `rgba(255,0,0,${opacity})`, // optional
+                        },
+                        {
+                            data: [0, 0, 0, 40, 60, 50],
+                            strokeWidth: 2,
+                            color: (opacity = 1) => `rgba(0,0,102, ${opacity})`, // optional
                         }
-                    ]
+                    ],
+                    legend: ['Particulier testen', 'Vrij testen']
                 }}
                 width={Dimensions.get("window").width} // from react-native
                 height={220}
