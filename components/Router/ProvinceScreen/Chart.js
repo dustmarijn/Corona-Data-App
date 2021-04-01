@@ -1,28 +1,39 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Text, View, Dimensions, StyleSheet} from "react-native";
 import {LineChart} from "react-native-chart-kit";
+import DataApi from '../../Api/DataApi';
 
 export default function Chart({defaultProvince}){
+
+    useEffect(
+        ()=> {
+            DataApi((data) =>
+                console.warn(data)
+            )
+        }
+    );
+
+    const data = {
+            labels: ["January", "February", "March", "April", "May", "June"],
+                datasets: [
+                {
+                    data: [
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                    ]
+                }
+            ]
+    };
 
     return(
             <View>
                 <Text>{defaultProvince}</Text>
                 <LineChart
-                    data={{
-                        labels: ["January", "February", "March", "April", "May", "June"],
-                        datasets: [
-                            {
-                                data: [
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100
-                                ]
-                            }
-                        ]
-                    }}
+                    data={data}
                     width={Dimensions.get("window").width} // from react-native
                     height={220}
                     yAxisLabel="$"
@@ -54,6 +65,6 @@ export default function Chart({defaultProvince}){
             </View>
             )
 }
-const styles = StyleSheet.create({
-
-})
+// const styles = StyleSheet.create({
+//
+// })
