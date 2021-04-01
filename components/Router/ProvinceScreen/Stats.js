@@ -8,13 +8,13 @@ export default function Stats({defaultProvince, setDefaultProvince}) {
     const Hospitalized = 2;
     const Deaths = 0;
     const LastDate = '04-02-2019';
-    //const Data = <RivmData/>;
+    const Data = <RivmData/>;
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
     return (
         <View style={{padding: 20}}>
-            {/*{Data}*/}
+            {Data}
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{defaultProvince}</Text>
             <Text style={styles.text}>Besmettingen: {Infections}</Text>
             <Text style={styles.text}>Ziekenhuis opnames: {Hospitalized}</Text>
