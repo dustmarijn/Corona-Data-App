@@ -1,8 +1,17 @@
-import React  from 'react';
+import React, {useEffect} from 'react';
 import {Text, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
+import DataApi from '../../Api/DataApi';
 
 export default  function DifferenceTestingScreen({navigation }) {
+
+    useEffect(
+        ()=> {
+            DataApi((data) =>
+                console.warn(data)
+            )
+        }
+    );
 
   return(
         <ScrollView style={{padding: 20}}>
