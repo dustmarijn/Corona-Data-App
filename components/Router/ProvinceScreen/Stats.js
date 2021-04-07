@@ -14,7 +14,7 @@ export default function Stats({defaultProvince, setDefaultProvince}) {
 
     return (
         <View style={{padding: 20}}>
-            {Data}
+            {/*{Data}*/}
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{defaultProvince}</Text>
             <Text style={styles.text}>Besmettingen: {Infections}</Text>
             <Text style={styles.text}>Ziekenhuis opnames: {Hospitalized}</Text>
