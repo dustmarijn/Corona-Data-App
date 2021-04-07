@@ -2,3 +2,4 @@ export default (Callback) => fetch('https://data.rivm.nl/covid-19/COVID-19_uitge
     .then((response) => response.json())
     .then(Callback)
     .catch((error) => console.error(error));
+
