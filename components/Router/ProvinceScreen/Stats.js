@@ -24,6 +24,7 @@ export default function Stats({defaultProvince, setDefaultProvince}) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,
