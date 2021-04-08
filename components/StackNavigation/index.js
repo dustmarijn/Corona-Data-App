@@ -37,7 +37,10 @@ export default function StackNavigation({defaultRoute}) {
         headerTitle: <Title/>,
         headerTitleStyle: {alignSelf: 'center', fontWeight: 'bold'},
         headerTitleAlign: 'center',
-        animationEnabled: false
+        animationEnabled: false,
+        headerTitleContainerStyle: {
+            left: 0,
+        },
     };
 
     return (
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: 'auto',
         zIndex: 1000,
-        marginLeft: 0,
+        marginLeft: 'auto',
     },
     item: {
         position: 'relative',
