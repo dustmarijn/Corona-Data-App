@@ -1,4 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 
 export const UserContext = createContext();
 
@@ -22,8 +23,13 @@ export default function UserProvider({children, navigation}) {
         setUserChanged(true);
     }
 
+    function Logout() {
+        setUser(null);
+        setUserChanged(false);
+        Alert.alert('Je wordt nu uitgelogd!')
+    }
     return (
-        <UserContext.Provider value={{user, setUser, Login}}>
+        <UserContext.Provider value={{user, setUser, Login, Logout}}>
             {children}
         </UserContext.Provider>
     )
