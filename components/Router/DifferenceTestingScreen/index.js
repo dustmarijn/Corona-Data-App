@@ -1,20 +1,43 @@
-import React, {useEffect} from 'react';
-import {Text, ScrollView, Dimensions} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, ScrollView, Dimensions,FlatList} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 import DataApi from '../../Api/DataApi';
+import HospitalApi from '../../Api/HospitalApi';
+
+
 
 export default  function DifferenceTestingScreen({navigation }) {
+
+    const [useTestData, setUseTestData] = useState('');
+    const [usePostiveData, setUsePostiveData] = useState('');
+    const [useZiekenData, setUseZiekenData] = useState('');
+    const [useDeathData, setUseDeathtData] = useState('');
 
     useEffect(
         ()=> {
             DataApi((data) =>
-                console.warn(data)
+                [setUseTestData(data.Tested_with_result),
+                    setUsePostiveData(data.Tested_positive),]
+            );
+
+            HospitalApi((data) =>
+                [setUseZiekenData(data.Hospital_admission),
+                    setUseDeathtData(data.Deceased),]
             )
-        }
+        },[]
     );
 
   return(
         <ScrollView style={{padding: 20}}>
+            <FlatList
+            //    data={[{ data }]}
+          //      renderItem={({ render })}
+              //          key={data.key}
+
+                />
+
+
+
             <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
             <Text>Grafiek postive testen van December/Januari</Text>
             <LineChart
@@ -62,10 +85,10 @@ export default  function DifferenceTestingScreen({navigation }) {
             />
             <Text style={{color: '#00a7d0', fontSize: 30}}>Partucilier testen.  </Text>
             <Text  style={{fontSize: 15}}> Datum van 17 December tot 07 Januari. </Text>
-            <Text> Aantal testen: DATA </Text>
-            <Text> Postive testen: DATA </Text>
-            <Text> Ziekenhuis opnames: DATA </Text>
-            <Text> Overlden: DATA </Text>
+            <Text> Aantal testen: {useTestData} </Text>
+            <Text> Postive testen: {usePostiveData} </Text>
+            <Text> Ziekenhuis opnames: {useZiekenData} </Text>
+            <Text> Overlden: {useDeathData} </Text>
 
             <Text>  </Text>
 
