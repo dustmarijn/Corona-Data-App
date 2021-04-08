@@ -35,16 +35,16 @@ import UserProvider from './components/Providers/UserProvider';
 const App: () => React$Node = () => {
     return (
         <UserProvider>
-            <NavigationContainer>
-                <StatusBar translucent backgroundColor={'#facc00'}/>
-                <TopItem/>
-                <SafeAreaView>
-                    <ScrollView style={styles.scrollView}>
+                <NavigationContainer>
+                    <StatusBar translucent backgroundColor={'#facc00'}/>
+                    <TopItem/>
+                    <SafeAreaView>
+                        <ScrollView style={styles.scrollView}>
 
-                    </ScrollView>
-                </SafeAreaView>
-                <TabNavigation/>
-            </NavigationContainer>
+                        </ScrollView>
+                    </SafeAreaView>
+                    <TabNavigation/>
+                </NavigationContainer>
         </UserProvider>
     );
 };
