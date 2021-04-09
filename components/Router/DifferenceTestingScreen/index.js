@@ -59,7 +59,7 @@ export default function DifferenceTestingScreen({navigation}) {
     }, [data]);
 
     return(
-        <ScrollView style={{padding: 20}}>
+        <ScrollView>
 
             <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
             <Text>Grafiek postive testen van December/Januari</Text>
@@ -103,9 +103,10 @@ export default function DifferenceTestingScreen({navigation}) {
                 bezier
                 style={{
                     marginVertical: 8,
-                    borderRadius: 16
+                    borderRadius: 16,
                 }}
             />
+
             <Text style={{color: '#00a7d0', fontSize: 30}}>Partucilier testen.  </Text>
             <Text  style={{fontSize: 15}}> Datum van 16 December tot 06 Januari. </Text>
             <Text> Aantal testen: {useTestedResult ? useTestedResult : '0'} </Text>
@@ -124,6 +125,7 @@ export default function DifferenceTestingScreen({navigation}) {
             <Text>  </Text>
             <Text>  </Text>
             <Text>  </Text>
+
         </ScrollView>
     )
 }
