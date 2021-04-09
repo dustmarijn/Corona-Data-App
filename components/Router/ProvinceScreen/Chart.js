@@ -9,26 +9,21 @@ export default function Chart({defaultProvince}){
     const [RegionData, setRegionData] = useState('');
     const [PositiveData, setPositiveData] = useState('');
 
-    useEffect(
-        ()=> {
-            ApiData((data) =>
-                data.filter((item) => {
-                    return item.Security_region_name === defaultProvince;
-                })
-            )
-        }
-    );
-
     const data = {
-            labels: ["January", "February", "March", "April", "May", "June"],
-                datasets: [
-                {
-                    data: data.map((obj) => {
-                        return obj.Tested_positive;
-                    })
-                }
-            ]
-    };
+        labels: ["January", "February", "March", "April", "May", "June"],
+            datasets: [
+            {
+                data: [
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100
+                ]
+            }
+        ]
+    }
 
     return(
 
