@@ -31,21 +31,28 @@ import {NavigationContainer} from '@react-navigation/native';
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
 import UserProvider from './components/Providers/UserProvider';
+import DataApiProvider from './components/Providers/DataApiProvider';
+import HospitalApiProvider from './components/Providers/HospitalApiProvider';
 
 const App: () => React$Node = () => {
     return (
-        <UserProvider>
-            <NavigationContainer>
-                <StatusBar translucent backgroundColor={'#facc00'}/>
-                <TopItem/>
-                <SafeAreaView>
-                    <ScrollView style={styles.scrollView}>
+        <HospitalApiProvider>
+            <DataApiProvider>
+                <UserProvider>
+                    <NavigationContainer>
+                        <StatusBar translucent backgroundColor={'#facc00'}/>
+                        <TopItem/>
+                        <SafeAreaView>
+                            <ScrollView style={styles.scrollView}>
 
-                    </ScrollView>
-                </SafeAreaView>
-                <TabNavigation/>
-            </NavigationContainer>
-        </UserProvider>
+                            </ScrollView>
+                        </SafeAreaView>
+                        <TabNavigation/>
+                    </NavigationContainer>
+                </UserProvider>
+            </DataApiProvider>
+        </HospitalApiProvider>
+
     );
 };
 
