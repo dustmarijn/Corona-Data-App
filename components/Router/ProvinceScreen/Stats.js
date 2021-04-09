@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import RivmData from '../../Api/DataApi';
+
 
 export default function Stats({defaultProvince, setDefaultProvince}) {
 
