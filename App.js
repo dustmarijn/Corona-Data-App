@@ -16,22 +16,28 @@ import 'react-native-gesture-handler';
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
 import UserProvider from './components/Providers/UserProvider';
+import DataApiProvider from './components/Providers/DataApiProvider';
+import HospitalApiProvider from './components/Providers/HospitalApiProvider';
 
 const App: () => React$Node = () => {
 
     return (
-        <>
-            <StatusBar translucent backgroundColor={'#facc00'}/>
-            <TopItem/>
-            <UserProvider>
-                <SafeAreaView>
-                    <ScrollView>
+        <HospitalApiProvider>
+            <DataApiProvider>
+                <UserProvider>
+                    <NavigationContainer>
+                        <StatusBar translucent backgroundColor={'#facc00'}/>
+                        <TopItem/>
+                        <SafeAreaView>
+                            <ScrollView style={styles.scrollView}>
 
-                    </ScrollView>
-                </SafeAreaView>
-                <TabNavigation/>
-            </UserProvider>
-        </>
+                            </ScrollView>
+                        </SafeAreaView>
+                        <TabNavigation/>
+                    </NavigationContainer>
+                </UserProvider>
+            </DataApiProvider>
+        </HospitalApiProvider>
     );
 };
 
