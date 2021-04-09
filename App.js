@@ -7,7 +7,14 @@
  */
 
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
+import {
+    SafeAreaView,
+    StyleSheet,
+    ScrollView,
+    View,
+    Text,
+    StatusBar,
+} from 'react-native';
 
 import 'react-native-gesture-handler';
 
@@ -22,22 +29,22 @@ import HospitalApiProvider from './components/Providers/HospitalApiProvider';
 const App: () => React$Node = () => {
 
     return (
-        <HospitalApiProvider>
+        <>
+            <StatusBar translucent backgroundColor={'#facc00'}/>
+            <TopItem/>
             <DataApiProvider>
-                <UserProvider>
-                    <NavigationContainer>
-                        <StatusBar translucent backgroundColor={'#facc00'}/>
-                        <TopItem/>
+                <HospitalApiProvider>
+                    <UserProvider>
                         <SafeAreaView>
-                            <ScrollView style={styles.scrollView}>
+                            <ScrollView>
 
                             </ScrollView>
                         </SafeAreaView>
                         <TabNavigation/>
-                    </NavigationContainer>
-                </UserProvider>
+                    </UserProvider>
+                </HospitalApiProvider>
             </DataApiProvider>
-        </HospitalApiProvider>
+        </>
     );
 };
 
