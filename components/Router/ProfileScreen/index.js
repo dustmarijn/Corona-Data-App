@@ -6,7 +6,7 @@ import UserApi from '../../Api/UserApi';
 import LoginScreen from '../LoginScreen';
 
 export default function ProfileScreen({navigation}) {
-    const {user} = UserApi();
+    const {user, Logout} = UserApi();
 
     return(
         <View>
@@ -24,7 +24,7 @@ export default function ProfileScreen({navigation}) {
                         <Text style={styles.UserEmail}>{user ? user.email : 'Not found'}</Text>
                         <View style={styles.ButtonGroup}>
                             <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
-                            <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Alert.alert('U wordt nu uitgelogd!')}/>
+                            <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Logout()}/>
                         </View>
                         <View style={styles.Line}/>
                     </View>
