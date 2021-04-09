@@ -1,8 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import {Text, View, Dimensions, StyleSheet} from "react-native";
+import {ScrollView} from "react-native-gesture-handler";
 import {LineChart} from "react-native-chart-kit";
 import ApiData from "../../Api/ApiData";
-import {ScrollView} from "react-native-gesture-handler";
+
 
 export default function Chart({defaultProvince}){
     const [RegionData, setRegionData] = useState('');
