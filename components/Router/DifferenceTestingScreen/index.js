@@ -6,7 +6,6 @@ import ApiData from '../../Api/ApiData';
 import ApiHospital from '../../Api/ApiHospital';
 
 export default function DifferenceTestingScreen({navigation}) {
-
     const [useTestData, setUseTestData] = useState('hallo');
     const [filteredData, setFilteredData] = useState('Hallo');
     const [usePositiveData, setUsePositiveData] = useState(0);
@@ -19,8 +18,6 @@ export default function DifferenceTestingScreen({navigation}) {
     const {hospitalData} = ApiHospital();
 
     function GetDataApi() {
-        setUseTestedResult(0);
-        setUsePositiveData(0);
         if (data !== null && hospitalData !== null) {
 
             let startDate = '2020-12-16'; // Start particuliere testen
@@ -60,9 +57,6 @@ export default function DifferenceTestingScreen({navigation}) {
     useEffect(()=> {
         GetDataApi();
     }, [data]);
-
-
-
 
   return(
         <ScrollView style={{padding: 20}}>
@@ -126,7 +120,7 @@ export default function DifferenceTestingScreen({navigation}) {
             <Text> Aantal testen: DATA </Text>
             <Text> Postive testen: DATA </Text>
             <Text> Ziekenhuis opnames: DATA </Text>
-            <Text> Overlden: DATA </Text>
+            <Text> Overleden: DATA </Text>
             <Text>  </Text>
             <Text>  </Text>
             <Text>  </Text>
