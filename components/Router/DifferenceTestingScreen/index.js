@@ -58,7 +58,7 @@ export default function DifferenceTestingScreen({navigation}) {
         GetDataApi();
     }, [data]);
 
-  return(
+    return(
         <ScrollView style={{padding: 20}}>
 
             <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
@@ -125,7 +125,7 @@ export default function DifferenceTestingScreen({navigation}) {
             <Text>  </Text>
             <Text>  </Text>
         </ScrollView>
-  )
+    )
 }
 // 1 juni iedereen mag testen
 // 7 januari vrij testen

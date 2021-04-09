@@ -32,10 +32,9 @@ export default function Chart({defaultProvince}){
 
     return(
 
-                <ScrollView
-                    horizontal={true}
-                    // showsHorizontalScrollIndicator={false}
-                    >
+            <View style={{ position: 'absolute', top: 1}}>
+                {/*horizontal={true}*/}
+                {/*showsHorizontalScrollIndicator={false}*/}
                 <LineChart
                     data={data}
                     width={Dimensions.get("window").width} // from react-native
@@ -66,7 +65,7 @@ export default function Chart({defaultProvince}){
                         borderRadius: 16
                     }}
                 />
-                </ScrollView>
+                </View>
             )
 }
 // const styles = StyleSheet.create({
