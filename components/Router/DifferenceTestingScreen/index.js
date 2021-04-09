@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
-import DataApi from '../../Api/DataApi';
-import HospitalApi from '../../Api/HospitalApi';
-import {set} from 'react-native-reanimated';
-
 import ApiData from '../../Api/ApiData';
 import ApiHospital from '../../Api/ApiHospital';
 
@@ -16,8 +12,8 @@ export default  function DifferenceTestingScreen({navigation }) {
     const [filteredData, setFilteredData] = useState('Hallo');
     const [usePositiveData, setUsePositiveData] = useState(0);
     const [useTestedResult, setUseTestedResult] = useState(0);
-    const [useZiekenData, setUseZiekenData] = useState('');
-    const [useDeathData, setUseDeathtData] = useState('');
+    const [useZiekenData, setUseZiekenData] = useState(0);
+    const [useDeathData, setUseDeathData] = useState(0);
 
     const {data} = ApiData();
 
@@ -26,7 +22,7 @@ export default  function DifferenceTestingScreen({navigation }) {
     function GetDataApi() {
         setUseTestedResult(0);
         setUsePositiveData(0);
-        if (data !== null) {
+        if (data !== null && hospitalData !== null) {
 
             let startDate = '2020-12-16'; // Start particuliere testen
             let endDate = '2021-01-06'; // Einde particuliere testen
@@ -34,6 +30,13 @@ export default  function DifferenceTestingScreen({navigation }) {
             let filteredData = data.filter((obj) => {
                 return obj.Date_of_statistics >= startDate && obj.Date_of_statistics <= endDate;
             });
+
+            let hospitalFilteredData = hospitalData.filter((obj) => {
+                return obj.Date_of_publication >= startDate && obj.Date_of_publication <= endDate;
+            });
+
+            let ziekenData = useZiekenData;
+            let deathData = useDeathData;
 
             // filter 1 dag op deze manier: const filteredData = data.filter((item => item.Date_of_statistics === '2020-12-17'));
             let testedResult = useTestedResult;
@@ -43,6 +46,13 @@ export default  function DifferenceTestingScreen({navigation }) {
                 testedResult += Tested_with_result;
                 positiveData += Tested_positive;
             }
+
+            for (const {Hospital_admission, Deceased} of hospitalFilteredData) {
+                ziekenData += Hospital_admission;
+                deathData += Deceased;
+            }
+            setUseZiekenData(ziekenData);
+            setUseDeathData(deathData);
             setUseTestedResult(testedResult);
             setUsePositiveData(positiveData);
         }

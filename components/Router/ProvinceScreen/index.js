@@ -12,7 +12,6 @@ export default function ProvinceScreen(){
             <DropDown defaultProvince={defaultProvince} setDefaultProvince={ setDefaultProvince}/>
             <Chart defaultProvince={defaultProvince} setDefaultProvince={ setDefaultProvince}/>
             <Stats defaultProvince={defaultProvince} setDefaultProvince={ setDefaultProvince}/>
-
         </ScrollView>
     )
 }
