@@ -124,3 +124,6 @@ export default  function DifferenceTestingScreen({navigation }) {
         </ScrollView>
     )
 }
+// 1 juni iedereen mag testen
+// 7 januari vrij testen
+
