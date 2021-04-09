@@ -1,14 +1,19 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import {Text, View, Dimensions, StyleSheet} from "react-native";
 import {LineChart} from "react-native-chart-kit";
-import DataApi from '../../Api/DataApi';
+import ApiData from "../../Api/ApiData";
+import {ScrollView} from "react-native-gesture-handler";
 
 export default function Chart({defaultProvince}){
+    const [RegionData, setRegionData] = useState('');
+    const [PositiveData, setPositiveData] = useState('');
 
     useEffect(
         ()=> {
-            DataApi((data) =>
-                console.warn(data)
+            ApiData((data) =>
+                data.filter((item) => {
+                    return item.Security_region_name === defaultProvince;
+                })
             )
         }
     );
@@ -17,21 +22,19 @@ export default function Chart({defaultProvince}){
             labels: ["January", "February", "March", "April", "May", "June"],
                 datasets: [
                 {
-                    data: [
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                        Math.random() * 100,
-                    ]
+                    data: data.map((obj) => {
+                        return obj.Tested_positive;
+                    })
                 }
             ]
     };
 
     return(
-            <View>
-                <Text>{defaultProvince}</Text>
+
+                <ScrollView
+                    horizontal={true}
+                    // showsHorizontalScrollIndicator={false}
+                    >
                 <LineChart
                     data={data}
                     width={Dimensions.get("window").width} // from react-native
@@ -62,7 +65,7 @@ export default function Chart({defaultProvince}){
                         borderRadius: 16
                     }}
                 />
-            </View>
+                </ScrollView>
             )
 }
 // const styles = StyleSheet.create({

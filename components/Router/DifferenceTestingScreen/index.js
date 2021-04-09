@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
-import DataApi from '../../Api/DataApi';
-import HospitalApi from '../../Api/HospitalApi';
-import {set} from 'react-native-reanimated';
-
 import ApiData from '../../Api/ApiData';
 import ApiHospital from '../../Api/ApiHospital';
 

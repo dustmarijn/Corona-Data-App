@@ -8,7 +8,6 @@ export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
     const BaseColor= "#B9345E";
 
     return(
-        <View>
             <DropDownPicker
                 items={[ {value : "Algemeen", label : "Algemeen"},{value: "Groningen", label : "Groningen"}, {value:"Friesland", label : "Friesland"}, {value:"Drenthe", label : "Drenthe"}, {value:"Overijssel", label : "Overijssel"}, {value:"Flevoland", label : "Flevoland"}, {value:"Noord-Holland", label : "Noord-Holland"}, {value:"Zuid-Holland", label : "Zuid-Holland"}, {value:"Gelderland", label : "Gelderland"}, {value:"Utrecht", label : "Utrecht"}, {value:"Noord-Brabant", label : "Noord-Brabant"}, {value:"Limburg", label : "Limburg"}, {value:"Zeeland", label : "Zeeland"}]}
                 multiple={false}
@@ -22,9 +21,6 @@ export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
                 onChangeItem={item => setDefaultProvince(item.value)}
 
             />
-
-        </View>
-
     )
 }
 const styles = StyleSheet.create({
