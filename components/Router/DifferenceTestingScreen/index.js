@@ -1,48 +1,68 @@
 import React, {useEffect, useState} from 'react';
-import {Text, ScrollView, Dimensions,FlatList} from 'react-native';
+import {Text, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 import DataApi from '../../Api/DataApi';
 import HospitalApi from '../../Api/HospitalApi';
+import {set} from 'react-native-reanimated';
+
+import ApiData from '../../Api/ApiData';
+import ApiHospital from '../../Api/ApiHospital';
 
 
 
 export default  function DifferenceTestingScreen({navigation }) {
 
-    const [useTestData, setUseTestData] = useState('');
-    const [usePostiveData, setUsePostiveData] = useState('');
+    const [useTestData, setUseTestData] = useState('hallo');
+    const [filteredData, setFilteredData] = useState('Hallo');
+    const [usePositiveData, setUsePositiveData] = useState(0);
+    const [useTestedResult, setUseTestedResult] = useState(0);
     const [useZiekenData, setUseZiekenData] = useState('');
     const [useDeathData, setUseDeathtData] = useState('');
 
-    useEffect(
-        ()=> {
-            DataApi((data) =>
-                [setUseTestData(data.Tested_with_result),
-                    setUsePostiveData(data.Tested_positive),]
-            );
+    const {data} = ApiData();
 
-            HospitalApi((data) =>
-                [setUseZiekenData(data.Hospital_admission),
-                    setUseDeathtData(data.Deceased),]
-            )
-        },[]
-    );
+    const {hospitalData} = ApiHospital();
+
+    function GetDataApi() {
+        setUseTestedResult(0);
+        setUsePositiveData(0);
+        if (data !== null) {
+
+            let startDate = '2020-12-16'; // Start particuliere testen
+            let endDate = '2021-01-06'; // Einde particuliere testen
+
+            let filteredData = data.filter((obj) => {
+                return obj.Date_of_statistics >= startDate && obj.Date_of_statistics <= endDate;
+            });
+
+            // filter 1 dag op deze manier: const filteredData = data.filter((item => item.Date_of_statistics === '2020-12-17'));
+            let testedResult = useTestedResult;
+            let positiveData = usePositiveData;
+
+            for (const {Tested_with_result, Tested_positive} of filteredData) {
+                testedResult += Tested_with_result;
+                positiveData += Tested_positive;
+            }
+            setUseTestedResult(testedResult);
+            setUsePositiveData(positiveData);
+        }
+    }
+
+    useEffect(()=> {
+        GetDataApi();
+    }, [data]);
+
+
+
 
   return(
         <ScrollView style={{padding: 20}}>
-            <FlatList
-            //    data={[{ data }]}
-          //      renderItem={({ render })}
-              //          key={data.key}
-
-                />
-
-
 
             <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
             <Text>Grafiek postive testen van December/Januari</Text>
             <LineChart
                 data={{
-                    labels: ["17-24", "24-31", "31-07", "07-14", "14-21", "21-28"],
+                    labels: ["16-23", "23-30", "30-06", "07-14", "14-21", "21-28"],
                     datasets: [
                         {
                             data: [20, 40, 50, 0, 0, 0],
@@ -84,11 +104,11 @@ export default  function DifferenceTestingScreen({navigation }) {
                 }}
             />
             <Text style={{color: '#00a7d0', fontSize: 30}}>Partucilier testen.  </Text>
-            <Text  style={{fontSize: 15}}> Datum van 17 December tot 07 Januari. </Text>
-            <Text> Aantal testen: {useTestData} </Text>
-            <Text> Postive testen: {usePostiveData} </Text>
-            <Text> Ziekenhuis opnames: {useZiekenData} </Text>
-            <Text> Overlden: {useDeathData} </Text>
+            <Text  style={{fontSize: 15}}> Datum van 16 December tot 06 Januari. </Text>
+            <Text> Aantal testen: {useTestedResult ? useTestedResult : '0'} </Text>
+            <Text> Postive testen: {usePositiveData ? usePositiveData : '0'} </Text>
+            <Text> Ziekenhuis opnames: {useZiekenData ? useZiekenData : '0'} </Text>
+            <Text> Overlden: {useDeathData ? useDeathData : '0'} </Text>
 
             <Text>  </Text>
 
