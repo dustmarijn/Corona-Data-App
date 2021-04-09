@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import {Text, View, Dimensions, StyleSheet} from "react-native";
 import {LineChart} from "react-native-chart-kit";
-import DataApi from '../../Api/DataApi';
+
 
 export default function Chart({defaultProvince}){
 
