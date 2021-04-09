@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import RivmData from '../../Api/ApiData';
 
-
-export default function Stats({defaultProvince, setDefaultProvince}) {
+export default function Stats({defaultProvince}) {
 
     const Infections = 10;
     const Hospitalized = 2;
@@ -24,6 +24,7 @@ export default function Stats({defaultProvince, setDefaultProvince}) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,

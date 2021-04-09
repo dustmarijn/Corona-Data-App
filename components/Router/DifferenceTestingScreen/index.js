@@ -5,9 +5,7 @@ import {LineChart} from "react-native-chart-kit";
 import ApiData from '../../Api/ApiData';
 import ApiHospital from '../../Api/ApiHospital';
 
-
-
-export default  function DifferenceTestingScreen({navigation}) {
+export default function DifferenceTestingScreen({navigation}) {
 
     const [useTestData, setUseTestData] = useState('hallo');
     const [filteredData, setFilteredData] = useState('Hallo');
