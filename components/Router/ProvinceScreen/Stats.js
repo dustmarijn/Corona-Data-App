@@ -13,7 +13,7 @@ export default function Stats({defaultProvince}) {
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
     return (
-        <View style={{padding: 20}}>
+        <View style={{padding: 20, marginTop: "100%"}}>
             {/*{Data}*/}
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{defaultProvince}</Text>
             <Text style={styles.text}>Besmettingen: {Infections}</Text>

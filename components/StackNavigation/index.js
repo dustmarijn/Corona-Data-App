@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: 'auto',
         zIndex: 1000,
-        marginLeft: 'auto',
+        marginLeft: 0,
     },
     item: {
         position: 'relative',
@@ -111,6 +111,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
-
-
-
