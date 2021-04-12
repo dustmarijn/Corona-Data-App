@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import DataApi from '../../Api/DataApi';
 
-export default function Stats({defaultProvince, setDefaultProvince}) {
+export default function Stats({defaultProvince}) {
 
     const Infections = 10;
     const Hospitalized = 2;
@@ -28,6 +28,7 @@ export default function Stats({defaultProvince, setDefaultProvince}) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     text: {
         fontSize: 17,

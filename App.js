@@ -16,77 +16,36 @@ import {
     StatusBar,
 } from 'react-native';
 
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
 
 
 // Components
 import TabNavigation from './components/TabNavigation';
 import TopItem from './components/TopItem';
 import UserProvider from './components/Providers/UserProvider';
+import DataApiProvider from './components/Providers/DataApiProvider';
+import HospitalApiProvider from './components/Providers/HospitalApiProvider';
 
 const App: () => React$Node = () => {
-    return (
-        <UserProvider>
-            <NavigationContainer>
-                <StatusBar translucent backgroundColor={'#facc00'}/>
-                <TopItem/>
-                <SafeAreaView>
-                    <ScrollView style={styles.scrollView}>
 
-                    </ScrollView>
-                </SafeAreaView>
-                <TabNavigation/>
-            </NavigationContainer>
-        </UserProvider>
+    return (
+        <>
+            <DataApiProvider>
+                <HospitalApiProvider>
+                    <UserProvider>
+                        <StatusBar translucent backgroundColor={'#facc00'}/>
+                        <TopItem/>
+                        <SafeAreaView>
+                            <ScrollView>
+
+                            </ScrollView>
+                        </SafeAreaView>
+                        <TabNavigation/>
+                    </UserProvider>
+                </HospitalApiProvider>
+            </DataApiProvider>
+        </>
     );
 };
-
-const styles = StyleSheet.create({
-    scrollView: {
-        position: 'relative',
-        backgroundColor: Colors.lighter,
-    },
-    engine: {
-        position: 'absolute',
-        right: 0,
-    },
-    body: {
-        backgroundColor: Colors.white,
-    },
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
-    },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: '600',
-        color: Colors.black,
-    },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: '400',
-        color: Colors.dark,
-    },
-    highlight: {
-        fontWeight: '700',
-    },
-    footer: {
-        color: Colors.dark,
-        fontSize: 12,
-        fontWeight: '600',
-        padding: 4,
-        paddingRight: 12,
-        textAlign: 'right',
-    },
-});
 
 export default App;
