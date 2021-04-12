@@ -30,11 +30,11 @@ const App: () => React$Node = () => {
 
     return (
         <>
-            <StatusBar translucent backgroundColor={'#facc00'}/>
-            <TopItem/>
             <DataApiProvider>
                 <HospitalApiProvider>
                     <UserProvider>
+                        <StatusBar translucent backgroundColor={'#facc00'}/>
+                        <TopItem/>
                         <SafeAreaView>
                             <ScrollView>
 
