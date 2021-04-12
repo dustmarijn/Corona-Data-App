@@ -18,7 +18,7 @@ export default function DifferenceTestingScreen({navigation}) {
     const {hospitalData} = ApiHospital();
 
     function GetDataApi() {
-        if (data !== null) {
+        if (data !== null && hospitalData !== null) {
 
             let startDate = '2020-12-16'; // Start particuliere testen
             let endDate = '2021-01-06'; // Einde particuliere testen
@@ -27,12 +27,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 return obj.Date_of_statistics >= startDate && obj.Date_of_statistics <= endDate;
             });
 
-            // let hospitalFilteredData = hospitalData.filter((obj) => {
-            //     return obj.Date_of_publication >= startDate && obj.Date_of_publication <= endDate;
-            // });
+            let hospitalFilteredData = hospitalData.filter((obj) => {
+                return obj.Date_of_publication >= startDate && obj.Date_of_publication <= endDate;
+            });
 
-            // let SickData = useSickData;
-            // let deathData = useDeathData;
+            let SickData = useSickData;
+            let deathData = useDeathData;
 
             // filter 1 dag op deze manier: const filteredData = data.filter((item => item.Date_of_statistics === '2020-12-17'));
             let testedResult = useTestedResult;
@@ -43,12 +43,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 positiveData += Tested_positive;
             }
 
-            // for (const {Hospital_admission, Deceased} of hospitalFilteredData) {
-            //     SickData += Hospital_admission;
-            //     deathData += Deceased;
-            // }
-            // setUseSickData(SickData);
-            // setUseDeathData(deathData);
+            for (const {Hospital_admission, Deceased} of hospitalFilteredData) {
+                SickData += Hospital_admission;
+                deathData += Deceased;
+            }
+            setUseSickData(SickData);
+            setUseDeathData(deathData);
             setUseTestedResult(testedResult);
             setUsePositiveData(positiveData);
         }
