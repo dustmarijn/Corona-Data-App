@@ -56,7 +56,7 @@ export default function DifferenceTestingScreen({navigation}) {
 
     useEffect(()=> {
         GetDataApi();
-    }, [data]);
+    }, [data && hospitalData]);
 
     return(
         <ScrollView>
@@ -109,10 +109,12 @@ export default function DifferenceTestingScreen({navigation}) {
 
             <Text style={{color: '#00a7d0', fontSize: 30}}>Partucilier testen.  </Text>
             <Text  style={{fontSize: 15}}> Datum van 16 December tot 06 Januari. </Text>
-            <Text> Aantal testen: {useTestedResult ? useTestedResult : '0'} </Text>
-            <Text> Postive testen: {usePositiveData ? usePositiveData : '0'} </Text>
-            <Text> Ziekenhuis opnames: {useSickData ? useSickData : '0'} </Text>
-            <Text> Overlden: {useDeathData ? useDeathData : '0'} </Text>
+
+            <Text> Aantal testen: {useTestedResult ? useTestedResult : 'Aan het laden...'} </Text>
+            <Text> Postive testen: {usePositiveData ? usePositiveData : 'Aan het laden...'} </Text>
+            <Text> Ziekenhuis opnames: {useZiekenData ? useZiekenData : 'Aan het laden...'} </Text>
+            <Text> Overlden: {useDeathData ? useDeathData : 'Aan het laden...'} </Text>
+
 
             <Text>  </Text>
 
