@@ -11,6 +11,7 @@ const wait = (timeout) => {
 export default function HomeScreen({navigation}) {
     const [refreshing, setRefreshing] = useState(false);
 
+
     const onRefresh = useCallback(() => {
         setRefreshing(true);
         wait(2000).then(() => setRefreshing(false));
@@ -68,7 +69,7 @@ export default function HomeScreen({navigation}) {
                             alignContent: 'center',
                             marginRight: 10,
                         }}>
-                            <MaterialCommunityIcons name="map-outline" size={30} color="#fff"/>
+                            <MaterialCommunityIcons onPress={() => navigation.navigate('Province')} name="map-outline" size={30} color="#fff"/>
                         </Button>
                         <Text style={{fontSize: 16, width: '95%'}}>Ga naar het overzicht van de Corona data in de provincies</Text>
                     </Button>
@@ -102,7 +103,7 @@ export default function HomeScreen({navigation}) {
                             alignContent: 'center',
                             marginRight: 10,
                         }}>
-                            <MaterialCommunityIcons name="vector-difference" size={30} color="#fff"/>
+                            <MaterialCommunityIcons onPress={() => navigation.navigate('Difference Testing Screen')}  name="vector-difference" size={30} color="#fff"/>
                         </Button>
                         <Text style={{fontSize: 16, width: '95%'}}>Ga naar het overzicht van de verschillen.</Text>
                     </Button>
@@ -191,3 +192,11 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     }
 });
+
+
+const users = ["userOne", "userTwo"];
+
+const data = `Hello, The following users exist within the users array:
+${users.forEach((user) => {
+    return '-' + user + '\n';
+})},`
