@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/react,reactnative,android,androidstudio,xcode,phpstorm,linux,jetbrains+iml
-# Edit at https://www.toptal.com/developers/gitignore?templates=react,reactnative,android,androidstudio,xcode,phpstorm,linux,jetbrains+iml
+# Created by https://www.toptal.com/developers/gitignore/api/linux,xcode,react,android,phpstorm,reactnative,jetbrains+iml,androidstudio,laravel
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,xcode,react,android,phpstorm,reactnative,jetbrains+iml,androidstudio,laravel
 
 ### Android ###
 # Built application files
@@ -174,6 +174,35 @@ fabric.properties
 modules.xml
 .idea/misc.xml
 *.ipr
+
+### Laravel ###
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+# Laravel IDE helper
+*.meta.*
+_ide_*
 
 ### Linux ###
 *~
@@ -400,7 +429,6 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -434,7 +462,6 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 .env.test
 .env*.local
 
@@ -448,6 +475,14 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
+
+# rollup.js default build output
+dist/
 
 # Gatsby files
 .cache/
@@ -472,6 +507,10 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# Temporary folders
+tmp/
+temp/
 
 ### ReactNative.Xcode Stack ###
 # Xcode
@@ -645,4 +684,4 @@ hs_err_pid*
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/react,reactnative,android,androidstudio,xcode,phpstorm,linux,jetbrains+iml
+# End of https://www.toptal.com/developers/gitignore/api/linux,xcode,react,android,phpstorm,reactnative,jetbrains+iml,androidstudio,laravel
