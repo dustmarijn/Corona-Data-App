@@ -192,11 +192,3 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     }
 });
-
-
-const users = ["userOne", "userTwo"];
-
-const data = `Hello, The following users exist within the users array:
-${users.forEach((user) => {
-    return '-' + user + '\n';
-})},`
