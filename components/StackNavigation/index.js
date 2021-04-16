@@ -37,7 +37,7 @@ export default function StackNavigation({defaultRoute}) {
         headerTitle: <Title/>,
         headerTitleStyle: {alignSelf: 'center', fontWeight: 'bold'},
         headerTitleAlign: 'center',
-        animationEnabled: false,
+        animationEnabled: true,
         headerTitleContainerStyle: {
             left: 0,
         },
