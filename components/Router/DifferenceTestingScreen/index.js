@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, ScrollView, Dimensions} from 'react-native';
+import {Text, ScrollView, Dimensions, View, StyleSheet} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 
 import ApiData from '../../Api/ApiData';
@@ -60,74 +60,97 @@ export default function DifferenceTestingScreen({navigation}) {
 
     return(
         <ScrollView>
+            <View style={{marginTop: -15,
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                alignContent: 'center',
+                justifyContent: 'flex-start', }}>
+                <View style={styles.View}>
+                    <Text style={{color: '#B9345E', fontSize: 25, fontWeight: 'bold'}}>Het vershil tussen vrij testen en particulier testen.</Text>
+                    <Text style={{marginBottom: 10, fontSize: 16, fontWeight: 'bold', left: 0, textAlign: 'left'}}>Grafiek postive testen van December/Januari</Text>
+                    <LineChart
+                        data={{
+                            labels: ["16-23", "23-30", "30-06", "07-14", "14-21", "21-28"],
+                            datasets: [
+                                {
+                                    data: [20, 40, 50, 0, 0, 0],
+                                    strokeWidth: 2,
+                                    color: (opacity = 1) => `#B9345E`, // optional
+                                },
+                                {
+                                    data: [0, 0, 0, 40, 60, 50],
+                                    strokeWidth: 2,
+                                    color: (opacity = 1) => `white`, // optional
+                                }
+                            ],
+                            legend: ['Particulier testen', 'Vrij testen']
+                        }}
+                        width={Dimensions.get("window").width - 40} // from react-native
+                        height={220}
+                        yAxisSuffix="P"
+                        yAxisInterval={1} // optional, defaults to 1
+                        chartConfig={{
+                            backgroundColor: "#facc00",
+                            backgroundGradientFrom: "#facc00",
+                            backgroundGradientTo: "#facc00",
+                            decimalPlaces: 3, // optional, defaults to 2dp
+                            color: (opacity = 1) => `black`,
+                            labelColor: (opacity = 1) => `black`,
+                            style: {
+                                borderRadius: 4
+                            },
+                            propsForDots: {
+                                r: "6",
+                                strokeWidth: "3",
+                                stroke: "#B9345E"
+                            }
+                        }}
+                        bezier
+                        style={{
+                            marginVertical: 5,
+                            borderRadius: 4,
+                            borderTopWidth: 2,
+                            paddingTop: 10,
+                            borderTopColor: '#e5e5e5',
+                            color: '#B9345E',
 
-            <Text style={{color: '#00a7d0', fontSize: 30}}>Het vershil tussen vrij testen en particulier testen.</Text>
-            <Text>Grafiek postive testen van December/Januari</Text>
-            <LineChart
-                data={{
-                    labels: ["16-23", "23-30", "30-06", "07-14", "14-21", "21-28"],
-                    datasets: [
-                        {
-                            data: [20, 40, 50, 0, 0, 0],
-                            strokeWidth: 2,
-                            color: (opacity = 1) => `rgba(255,0,0,${opacity})`, // optional
-                        },
-                        {
-                            data: [0, 0, 0, 40, 60, 50],
-                            strokeWidth: 2,
-                            color: (opacity = 1) => `rgba(0,0,102, ${opacity})`, // optional
-                        }
-                    ],
-                    legend: ['Particulier testen', 'Vrij testen']
-                }}
-                width={Dimensions.get("window").width} // from react-native
-                height={220}
-                yAxisSuffix="P"
-                yAxisInterval={1} // optional, defaults to 1
-                chartConfig={{
-                    backgroundColor: "#e26a00",
-                    backgroundGradientFrom: "#fb8c00",
-                    backgroundGradientTo: "#ffa726",
-                    decimalPlaces: 2, // optional, defaults to 2dp
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    style: {
-                        borderRadius: 16
-                    },
-                    propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                    }
-                }}
-                bezier
-                style={{
-                    marginVertical: 8,
-                    borderRadius: 16,
-                }}
-            />
-
-            <Text style={{color: '#00a7d0', fontSize: 30}}>Partucilier testen.  </Text>
-            <Text  style={{fontSize: 15}}> Datum van 16 December tot 06 Januari. </Text>
-            <Text> Aantal testen: {useTestedResult ? useTestedResult : 'Aan het laden...'} </Text>
-            <Text> Postive testen: {usePositiveData ? usePositiveData : 'Aan het laden...'} </Text>
-            <Text> Ziekenhuis opnames: {useZiekenData ? useZiekenData : 'Aan het laden...'} </Text>
-            <Text> Overlden: {useDeathData ? useDeathData : 'Aan het laden...'} </Text>
-
-            <Text>  </Text>
-
-            <Text style={{color: '#00a7d0', fontSize: 30}}>Vrij testen.  </Text>
-            <Text  style={{fontSize: 15}}> Datum van 07 Januari tot 28 Januari. </Text>
-            <Text> Aantal testen: DATA </Text>
-            <Text> Postive testen: DATA </Text>
-            <Text> Ziekenhuis opnames: DATA </Text>
-            <Text> Overleden: DATA </Text>
-            <Text>  </Text>
-            <Text>  </Text>
-            <Text>  </Text>
-
+                        }}
+                    />
+                    <Text style={{marginTop: 10, color: '#B9345E', fontSize: 25, fontWeight: 'bold'}}>Partucilier testen</Text>
+                    <Text style={{margin: 0,fontSize: 18, fontWeight: 'bold'}}> Datum van 16 December tot 06 Januari. </Text>
+                    <Text style={{fontSize: 16}}> Aantal testen: {useTestedResult ? useTestedResult : 'Aan het laden...'} </Text>
+                    <Text style={{fontSize: 16}}> Postive testen: {usePositiveData ? usePositiveData : 'Aan het laden...'} </Text>
+                    <Text style={{fontSize: 16}}> Ziekenhuis opnames: {useZiekenData ? useZiekenData : 'Aan het laden...'} </Text>
+                    <Text style={{fontSize: 16}}> Overlden: {useDeathData ? useDeathData : 'Aan het laden...'} </Text>
+                    <Text style={{marginTop: 20, borderTopWidth: 2, paddingTop: 5, borderTopColor: '#e5e5e5', color: '#B9345E', fontSize: 25, fontWeight: 'bold'}}>Vrij testen</Text>
+                    <Text style={{fontSize: 18, fontWeight: 'bold'}}> Datum van 07 Januari tot 28 Januari. </Text>
+                    <Text style={{fontSize: 16}}> Aantal testen: DATA </Text>
+                    <Text style={{fontSize: 16}}> Postive testen: DATA </Text>
+                    <Text style={{fontSize: 16}}> Ziekenhuis opnames: DATA </Text>
+                    <Text style={{fontSize: 16}}> Overleden: DATA </Text>
+                </View>
+            </View>
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    View: {
+        marginVertical: 25,
+        width: 95 + '%',
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 4,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    }
+})
 // 1 juni iedereen mag testen
 // 7 januari vrij testen
