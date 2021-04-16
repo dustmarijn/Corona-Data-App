@@ -39,7 +39,7 @@ export default function StackNavigation({defaultRoute}) {
         headerTitleAlign: 'center',
         animationEnabled: true,
         headerTitleContainerStyle: {
-            left: 0,
+            left: 'auto',
         },
     };
 
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: 'auto',
         zIndex: 1000,
-        marginLeft: 0,
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
     item: {
         position: 'relative',
