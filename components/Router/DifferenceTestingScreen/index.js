@@ -3,26 +3,26 @@ import {Text, ScrollView, Dimensions, View, StyleSheet} from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 
 import ApiData from '../../Api/ApiData';
-// import ApiHospital from '../../Api/ApiHospital';
+import ApiHospital from '../../Api/ApiHospital';
 
 export default function DifferenceTestingScreen({navigation}) {
     const [useTestData, setUseTestData] = useState('hallo');
     const [filteredData, setFilteredData] = useState('Hallo');
     const [usePositiveData, setUsePositiveData] = useState(0);
     const [useTestedResult, setUseTestedResult] = useState(0);
-    // const [useSickData, setUseSickData] = useState(0);
-    // const [useDeathData, setUseDeathData] = useState(0);
+    const [useSickData, setUseSickData] = useState(0);
+    const [useDeathData, setUseDeathData] = useState(0);
     const [usePPositiveData, setUsePPositiveData] = useState(0);
     const [useTTestedResult, setUseTTestedResult] = useState(0);
-    // const [useSSickData, setUseSSickData] = useState(0);
-    // const [useDDeathData, setUseDDeathData] = useState(0);
+    const [useSSickData, setUseSSickData] = useState(0);
+    const [useDDeathData, setUseDDeathData] = useState(0);
 
     const {data} = ApiData();
 
-   // const {hospitalData} = ApiHospital();
-    // && hospitalData !== null
+   const {hospitalData} = ApiHospital();
+
     function GetDataApi() {
-        if (data !== null ) {
+        if (data !== null && hospitalData !== null) {
             // filter 1 dag op deze manier: const filteredData = data.filter((item => item.Date_of_statistics === '2020-12-17'));
 
             let startDate = '2020-12-16'; // Start particuliere testen
@@ -33,12 +33,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 return obj.Date_of_statistics >= startDate && obj.Date_of_statistics <= endDate;
             });
 
-            // let hospitalFilteredData = hospitalData.filter((obj) => {
-            //     return obj.Date_of_publication >= startDate && obj.Date_of_publication <= endDate;
-            // });
+             let hospitalFilteredData = hospitalData.filter((obj) => {
+                return obj.Date_of_publication >= startDate && obj.Date_of_publication <= endDate;
+             });
 
-            // let SickData = useSickData;
-            // let deathData = useDeathData;
+             let SickData = useSickData;
+             let deathData = useDeathData;
             let testedResult = useTestedResult;
             let positiveData = usePositiveData;
 
@@ -47,12 +47,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 positiveData += Tested_positive;
             }
 
-            // for (const {Hospital_admission, Deceased} of hospitalFilteredData) {
-            //     SickData += Hospital_admission;
-            //     deathData += Deceased;
-            // }
-            // setUseSickData(SickData);
-            // setUseDeathData(deathData);
+            for (const {Hospital_admission, Deceased} of hospitalFilteredData) {
+                 SickData += Hospital_admission;
+                 deathData += Deceased;
+             }
+             setUseSickData(SickData);
+             setUseDeathData(deathData);
             setUseTestedResult(testedResult);
             setUsePositiveData(positiveData);
 
@@ -64,12 +64,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 return obj.Date_of_statistics >= beginDate && obj.Date_of_statistics <= eindDate;
             });
 
-            // let hospitalVrijTestData = hospitalData.filter((obj) => {
-            //     return obj.Date_of_publication >= beginDate && obj.Date_of_publication <= eindDate;
-            // });
+            let hospitalVrijTestData = hospitalData.filter((obj) => {
+                return obj.Date_of_publication >= beginDate && obj.Date_of_publication <= eindDate;
+            });
 
-            // let ssickData = useSSickData;
-            // let ddeathData = useDDeathData;
+            let ssickData = useSSickData;
+            let ddeathData = useDDeathData;
             let ttestedResult = useTTestedResult;
             let ppositiveData = usePPositiveData;
 
@@ -78,12 +78,12 @@ export default function DifferenceTestingScreen({navigation}) {
                 ppositiveData += Tested_positive;
             }
 
-            // for (const {Hospital_admission, Deceased} of hospitalVrijTestData) {
-            //     ssickData += Hospital_admission;
-            //     ddeathData += Deceased;
-            // }
-            // setUseSSickData(ssickData);
-            // setUseDDeathData(ddeathData);
+            for (const {Hospital_admission, Deceased} of hospitalVrijTestData) {
+                ssickData += Hospital_admission;
+                ddeathData += Deceased;
+            }
+            setUseSSickData(ssickData);
+            setUseDDeathData(ddeathData);
             setUseTTestedResult(ttestedResult);
             setUsePPositiveData(ppositiveData);
         }
@@ -92,7 +92,7 @@ export default function DifferenceTestingScreen({navigation}) {
 
     useEffect(()=> {
         GetDataApi();
-    }, [data]);
+    }, [data && hospitalData]);
 
     // && hospitalData
 
@@ -162,14 +162,14 @@ export default function DifferenceTestingScreen({navigation}) {
                     <Text style={{margin: 0,fontSize: 18, fontWeight: 'bold'}}> Datum van 16 December tot 06 Januari. </Text>
                     <Text style={{fontSize: 16}}> Aantal testen: {useTestedResult ? useTestedResult : 'Aan het laden...'} </Text>
                     <Text style={{fontSize: 16}}> Postive testen: {usePositiveData ? usePositiveData : 'Aan het laden...'} </Text>
-                    {/*<Text style={{fontSize: 16}}> Ziekenhuis opnames: {useZiekenData ? useZiekenData : 'Aan het laden...'} </Text>*/}
-                    {/*<Text style={{fontSize: 16}}> Overlden: {useDeathData ? useDeathData : 'Aan het laden...'} </Text>*/}
+                    <Text style={{fontSize: 16}}> Ziekenhuis opnames: {useSickData ? useSickData : 'Aan het laden...'} </Text>
+                    <Text style={{fontSize: 16}}> Overlden: {useDeathData ? useDeathData : 'Aan het laden...'} </Text>
                     <Text style={{marginTop: 20, borderTopWidth: 2, paddingTop: 5, borderTopColor: '#e5e5e5', color: '#B9345E', fontSize: 25, fontWeight: 'bold'}}>Vrij testen</Text>
                     <Text style={{fontSize: 18, fontWeight: 'bold'}}> Datum van 07 Januari tot 28 Januari. </Text>
                     <Text style={{fontSize: 16}}> Aantal testen: {useTTestedResult ? useTTestedResult : 'Aan het laden...'} </Text>
                     <Text style={{fontSize: 16}}> Postive testen: {usePPositiveData ? usePPositiveData : 'Aan het laden...'} </Text>
-                    {/*<Text style={{fontSize: 16}}> Ziekenhuis opnames: {useZZiekenData ? useZZiekenData : 'Aan het laden...'} </Text>*/}
-                    {/*<Text style={{fontSize: 16}}> Overleden: {useDDeathData ? useDDeathData : 'Aan het laden...'} </Text>*/}
+                    <Text style={{fontSize: 16}}> Ziekenhuis opnames: {useSSickData ? useSSickData : 'Aan het laden...'} </Text>
+                    <Text style={{fontSize: 16}}> Overleden: {useDDeathData ? useDDeathData : 'Aan het laden...'} </Text>
                 </View>
             </View>
 
