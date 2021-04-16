@@ -9,39 +9,90 @@ export default function ProfileScreen({navigation}) {
     const {user, Logout} = UserApi();
 
     return(
-        <View>
-            {user !== null ?
-                <>
-                    <Text style={styles.PageTitle}>Mijn Profiel</Text>
-                    <View style={styles.ImgContainer}>
-                        <Image
-                            style={styles.UserImg}
-                            source={require('./user.png')}>
-                        </Image>
-                    </View>
-                    <View style={styles.UserData}>
-                        <Text style={styles.UserName}>{user ? user.name : 'Not found'}</Text>
-                        <Text style={styles.UserEmail}>{user ? user.email : 'Not found'}</Text>
-                        <View style={styles.ButtonGroup}>
-                            <Button title={'Profiel bewerken'} style={styles.btnLogout} onPress={() => Alert.alert('Niet beschikbaar!')}/>
-                            <Button title={'Uitloggen'} style={styles.btnLogout} onPress={() => Logout()}/>
-                        </View>
-                        <View style={styles.Line}/>
-                    </View>
+        <View style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+            <>
+                {user !== null ?
+                    <>
+                        <View style={styles.View}>
+                            <Text style={{marginTop: 10, color: '#B9345E', fontSize: 25, fontWeight: 'bold', textAlign: 'left', width: '95%'}}>Mijn Profiel</Text>
+                            <View style={styles.ImgContainer}>
+                                <Image
+                                    style={styles.UserImg}
+                                    source={require('./user.png')}>
+                                </Image>
+                                <View style={styles.UserData}>
+                                    <Text style={styles.UserName}>{user ? user.name : 'Not found'}</Text>
+                                    <Text style={styles.UserEmail}>{user ? user.email : 'Not found'}</Text>
+                                </View>
+                            </View>
 
-                    <View style={styles.UserDashboard}>
-                        <Text style={styles.UserDashboardText}>Bekijk hier jouw eigen corona overzicht:</Text>
-                        <View style={styles.DashboardButten}>
-                            <Button title="Jouw corona overzicht"
-                                    color="#841584"
-                                    onPress={() => navigation.navigate('Dashboard')}
-                            />
+                            <Text style={styles.UserDashboardText}>Kies een van de volgende opties bij je profiel:</Text>
+                            <View style={{width: '95%'}}>
+                                <Button title="Ga naar jouw corona overzicht"
+                                        style={{
+                                            backgroundColor: '#00a7db',
+                                            color: 'white',
+                                            borderRadius: 4,
+                                            shadowColor: "#000",
+                                            shadowOffset: {
+                                                width: 0,
+                                                height: 2,
+                                            },
+                                            shadowOpacity: 0.25,
+                                            shadowRadius: 3.84,
+                                            elevation: 5,
+                                            paddingHorizontal: 20,
+                                            paddingVertical: 10,
+                                            marginRight: 5,
+                                            marginTop: 15,
+                                            width: 'auto',
+                                        }}
+                                        onPress={() => navigation.navigate('Dashboard')}
+                                />
+                            </View>
                         </View>
-                    </View>
-                </>
-            :
-                <LoginScreen/>
-            }
+                        <View style={[styles.View, {marginTop: 0,}]}>
+                            <Text style={{marginTop: 10, marginBottom: 10, color: '#B9345E', fontSize: 25, fontWeight: 'bold', textAlign: 'left', width: '95%'}}>Overig</Text>
+                            <View style={styles.ButtonGroup}>
+                                <Button title={'Profiel bewerken'} style={{
+                                    backgroundColor: '#00a7db',
+                                    color: 'white',
+                                    borderRadius: 4,
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 2,
+                                    },
+                                    shadowOpacity: 0.25,
+                                    shadowRadius: 3.84,
+                                    elevation: 5,
+                                    paddingHorizontal: 20,
+                                    paddingVertical: 10,
+                                    marginRight: 5,
+                                }} onPress={() => Alert.alert('Niet beschikbaar!')}/>
+                                <Button title={'Uitloggen'} style={{
+                                    backgroundColor: '#e5e5e5',
+                                    color: '#424242',
+                                    borderRadius: 4,
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 2,
+                                    },
+                                    shadowOpacity: 0.25,
+                                    shadowRadius: 3.84,
+                                    elevation: 5,
+                                    paddingHorizontal: 20,
+                                    paddingVertical: 10,
+                                    marginLeft: 5,
+                                }} onPress={() => Logout()}/>
+                            </View>
+                        </View>
+                    </>
+                    :
+                    <LoginScreen/>
+                }
+            </>
         </View>
     )
 };
@@ -49,34 +100,60 @@ export default function ProfileScreen({navigation}) {
 
 
 const styles = StyleSheet.create({
-    PageTitle: {
-        color: 'black',
-        fontSize: 50,
-        textAlign: 'center',
-        marginTop: 25,
+    View: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        flexDirection: 'column',
+        marginVertical: 25,
+        width: 95 + '%',
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 4,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
 
     ImgContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: 95 + '%',
+        marginTop: 15,
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        alignContent: 'flex-start',
+        flexDirection: 'row',
     },
 
     UserImg: {
-        width: 150,
-        height: 150,
+        width: 75,
+        height: 75,
     },
 
     UserName: {
         fontWeight: 'bold',
-        fontSize: 30,
-    },
-
-    UserEmail: {
         fontSize: 20,
     },
 
+    UserEmail: {
+        fontSize: 16,
+    },
+
     UserData: {
-        padding: 20,
+        top: 0,
+        marginLeft: 5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        alignContent: 'center',
+        flexDirection: 'column',
+        height: 75,
     },
 
     btnLogout: {
@@ -93,14 +170,8 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         padding: 0,
         marginTop: 5,
-        justifyContent: 'space-between',
-        width: 250,
-    },
-
-    Line: {
-        borderBottomColor: 'black',
-        borderBottomWidth: 1,
-        marginTop: 10,
+        justifyContent: 'flex-start',
+        width: 95 + '%',
     },
 
     UserDashboard: {
@@ -108,7 +179,8 @@ const styles = StyleSheet.create({
     },
 
     UserDashboardText: {
-        fontSize: 20,
+        width: '95%',
+        fontSize: 16,
     },
 
     DashboardButten: {
