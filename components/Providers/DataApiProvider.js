@@ -12,7 +12,6 @@ export default function DataApiProvider({children}) {
             .catch((error) => console.error(error));
     }, []);
 
-
     return (
         <DataApiContext.Provider value={{data}}>
             {children}

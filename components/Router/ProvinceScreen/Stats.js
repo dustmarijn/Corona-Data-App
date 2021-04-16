@@ -1,6 +1,6 @@
-import {React, useEffect, useState} from 'react';
+import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import DataApi from '../../Api/DataApi';
+import RivmData from '../../Api/ApiData';
 
 export default function Stats({defaultProvince}) {
 
@@ -8,17 +8,13 @@ export default function Stats({defaultProvince}) {
     const Hospitalized = 2;
     const Deaths = 0;
     const LastDate = '04-02-2019';
+    //const Data = <RivmData/>;
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-    const [CityDataApi, setCityDataApi] = useState('');
-    useEffect(
-        ()=> {
-            DataApi((data) =>
-                setDataApi(data));
-        }
-    );
+
     return (
-        <View style={{padding: 20}}>
+        <View style={{padding: 20, marginTop: "100%"}}>
+            {/*{Data}*/}
             <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{defaultProvince}</Text>
             <Text style={styles.text}>Besmettingen: {Infections}</Text>
             <Text style={styles.text}>Ziekenhuis opnames: {Hospitalized}</Text>
