@@ -9,7 +9,7 @@ export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
 
     return(
             <DropDownPicker
-                items={[ {value : "Algemeen", label : "Algemeen"},{value: "Groningen", label : "Groningen"}, {value:"Friesland", label : "Friesland"}, {value:"Drenthe", label : "Drenthe"}, {value:"Overijssel", label : "Overijssel"}, {value:"Flevoland", label : "Flevoland"}, {value:"Noord-Holland", label : "Noord-Holland"}, {value:"Zuid-Holland", label : "Zuid-Holland"}, {value:"Gelderland", label : "Gelderland"}, {value:"Utrecht", label : "Utrecht"}, {value:"Noord-Brabant", label : "Noord-Brabant"}, {value:"Limburg", label : "Limburg"}, {value:"Zeeland", label : "Zeeland"}]}
+                items={[{value: "Groningen", label : "Groningen"}, {value:"Friesland", label : "Friesland"}, {value:"Drenthe", label : "Drenthe"}, {value:"Overijssel", label : "Overijssel"}, {value:"Flevoland", label : "Flevoland"}, {value:"Noord-Holland", label : "Noord-Holland"}, {value:"Zuid-Holland", label : "Zuid-Holland"}, {value:"Gelderland", label : "Gelderland"}, {value:"Utrecht", label : "Utrecht"}, {value:"Noord-Brabant", label : "Noord-Brabant"}, {value:"Limburg", label : "Limburg"}, {value:"Zeeland", label : "Zeeland"}]}
                 multiple={false}
                 min={0}
                 max={12}
@@ -20,8 +20,7 @@ export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
                 dropDownStyle={{backgroundColor:BaseColor}}
                 onChangeItem={item => setDefaultProvince(item.value)}
             />
-    )
-}
+    )}
 const styles = StyleSheet.create({
     text:{
         fontSize: 40,
