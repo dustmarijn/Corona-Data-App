@@ -13,22 +13,18 @@ export default function Stats({defaultProvince}) {
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
     return (
-        <View style={{padding: 20, marginTop: "100%"}}>
+        <View style={{marginTop: "70%"}}>
             {/*{Data}*/}
-            <Text style={{color: '#00a7d0', fontSize: 30, marginBottom: 10}}>{defaultProvince}</Text>
-            <Text style={styles.text}>Besmettingen: {Infections}</Text>
-            <Text style={styles.text}>Ziekenhuis opnames: {Hospitalized}</Text>
-            <Text style={styles.text}>Overleden: {Deaths}</Text>
-            <Text style={styles.text}>Datum laatste cijfers: {LastDate}</Text>
-            <Text style={styles.text}>Datum: {date}</Text>
+            <Text style={{marginTop: 0, color: '#B9345E', fontSize: 25, fontWeight: 'bold'}}>{defaultProvince}</Text>
+            <Text style={{margin: 0,fontSize: 18, fontWeight: 'bold'}}> Gegevens van {defaultProvince}.</Text>
+            <Text style={{fontSize: 16, marginLeft: 4}}>Besmettingen: {Infections}</Text>
+            <Text style={{fontSize: 16, marginLeft: 4}}>Ziekenhuis opnames: {Hospitalized}</Text>
+            <Text style={{fontSize: 16, marginLeft: 4}}>Overleden: {Deaths}</Text>
+            <Text style={{fontSize: 16, marginLeft: 4}}>Datum laatste cijfers: {LastDate}</Text>
+            <Text style={{fontSize: 16, marginLeft: 4}}>Datum: {date}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 17,
-        color: '#00a7d0',
-        marginBottom: 10,
-    },
 });
