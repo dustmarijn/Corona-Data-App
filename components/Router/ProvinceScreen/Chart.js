@@ -24,21 +24,19 @@ export default function Chart({defaultProvince}){
 
     return(
 
-        <View style={{ position: 'absolute', top: 1}}>
-            {/*horizontal={true}*/}
-            {/*showsHorizontalScrollIndicator={false}*/}
+        <View style={{ position: 'absolute', marginLeft: 10, top: 160}}>
             <LineChart
                 data={data}
-                width={Dimensions.get("window").width} // from react-native
+                width={Dimensions.get("window").width - 40} // from react-native
                 height={220}
                 yAxisLabel="$"
                 yAxisSuffix="k"
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
-                    backgroundColor: "#e26a00",
+                    backgroundColor: "#facc00",
                     backgroundGradientFrom: "#facc00",
                     backgroundGradientTo: "#facc00",
-                    decimalPlaces: 2, // optional, defaults to 2dp
+                    decimalPlaces: 3, // optional, defaults to 2dp
                     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                     style: {
@@ -52,14 +50,13 @@ export default function Chart({defaultProvince}){
                 }}
                 bezier
                 style={{
-                    margin: 5,
-                    marginVertical: 8,
-                    borderRadius: 16
+                    marginVertical: 5,
+                    borderRadius: 4,
                 }}
             />
         </View>
     )
 }
-// const styles = StyleSheet.create({
-//
-// })
+
+
+

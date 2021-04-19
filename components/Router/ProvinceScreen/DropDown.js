@@ -13,12 +13,15 @@ export default function ProvinceScreen({defaultProvince, setDefaultProvince}){
                 multiple={false}
                 min={0}
                 max={12}
-                style={{backgroundColor:BaseColor, margin: 2}}
+                style={{backgroundColor:BaseColor}}
                 defaultValue={defaultProvince}
                 containerStyle={styles.dropdown}
                 placeholderStyle ={{backgroundColor:BaseColor}}
                 dropDownStyle={{backgroundColor:BaseColor}}
                 onChangeItem={item => setDefaultProvince(item.value)}
+                labelStyle={styles.label}
+                // arrowStyle={styles.arrow}
+                arrowStyle={{color: '#fff'}}
 
             />
     )
@@ -31,6 +34,13 @@ const styles = StyleSheet.create({
     },
     dropdown:{
         width: 120,
-        height: 45
-    }
+        height: 45,
+        margin: 0,
+    },
+    label:{
+        color: '#fff',
+    },
+    arrow:{
+        color: '#fff'
+    },
 })
