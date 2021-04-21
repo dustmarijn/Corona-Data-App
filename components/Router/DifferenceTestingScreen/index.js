@@ -115,12 +115,12 @@ export default function DifferenceTestingScreen({navigation}) {
                             labels: ["16-23", "23-30", "30-06", "07-14", "14-21", "21-28"],
                             datasets: [
                                 {
-                                    data: [20, 40, 50, 0, 0, 0],
+                                    data: [74625, 59440, 52707, 0, 0, 0],
                                     strokeWidth: 2,
                                     color: (opacity = 1) => `#B9345E`, // optional
                                 },
                                 {
-                                    data: [0, 0, 0, 40, 60, 50],
+                                    data: [0, 0, 0, 40255, 25650, 30167],
                                     strokeWidth: 2,
                                     color: (opacity = 1) => `white`, // optional
                                 }
